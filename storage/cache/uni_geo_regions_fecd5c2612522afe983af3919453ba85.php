@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '53',
+  'name' => 'Приморский край',
+  'alias' => 'primorskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '60',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Приморском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

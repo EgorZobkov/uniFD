@@ -1,0 +1,16 @@
+public function getPhoneTemplate(){
+    global $app;
+
+    $template = (array)$app->config->phone_codes;
+
+    if(!$app->settings->allowed_templates_phone_all_status){
+        if($app->settings->allowed_templates_phone){
+            if(count($app->settings->allowed_templates_phone) == 1){
+                return $template[$app->settings->allowed_templates_phone[0]];
+            }
+        }
+    }
+
+    return [];
+
+}

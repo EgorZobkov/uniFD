@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '17',
+  'name' => 'Забайкальский край',
+  'alias' => 'zabajkalskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '24',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Забайкальском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

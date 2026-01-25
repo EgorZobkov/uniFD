@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '79',
+  'name' => 'Ямало-Ненецкий автономный округ',
+  'alias' => 'yamalo-neneckij-avtonomnyj-okrug',
+  'country_id' => '1',
+  'temp_id' => '86',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Ямало-Ненецком АО',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '29',
+  'name' => 'Кировская область',
+  'alias' => 'kirovskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '36',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Кировской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

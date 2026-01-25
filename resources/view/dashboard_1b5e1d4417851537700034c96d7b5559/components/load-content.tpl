@@ -1,0 +1,7 @@
+<div class="load-content-container">
+      <div class="text-center" >
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden"></span>
+          </div>
+      </div>
+</div>

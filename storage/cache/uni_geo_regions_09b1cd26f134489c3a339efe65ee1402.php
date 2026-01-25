@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '45',
+  'name' => 'Новгородская область',
+  'alias' => 'novgorodskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '52',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Новгородской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

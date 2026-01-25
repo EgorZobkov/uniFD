@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '9',
+  'name' => 'Брянская область',
+  'alias' => 'bryanskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '16',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Брянской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

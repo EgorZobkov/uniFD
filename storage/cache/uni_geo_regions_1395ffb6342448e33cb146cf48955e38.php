@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '56',
+  'name' => 'Рязанская область',
+  'alias' => 'ryazanskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '63',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Рязанской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

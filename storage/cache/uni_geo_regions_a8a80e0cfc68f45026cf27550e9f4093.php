@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '36',
+  'name' => 'Курская область',
+  'alias' => 'kurskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '43',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Курской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

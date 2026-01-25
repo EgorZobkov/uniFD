@@ -1,0 +1,34 @@
+{
+    "name": "unisitecms/unisitecms",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },
+    "require": {
+        "gabordemooij/redbean": "dev-master",
+        "symfony/http-foundation": "^5.4",
+        "nesbot/carbon": "^3.0.2",
+        "mobiledetect/mobiledetectlib": "^4.8",
+        "php-ffmpeg/php-ffmpeg": "^1.2",
+        "box/spout": "^3.3",
+        "yoomoney/yookassa-sdk-php": "^3.4",
+        "mpdf/mpdf": "^8.2",
+        "stripe/stripe-php": "^17.1",
+        "league/oauth2-server": "*",
+        "intervention/image": "^3.11.2",
+        "elasticsearch/elasticsearch": "^9.0",
+        "paypal/paypal-checkout-sdk": "^1.0",
+        "vkcom/vk-php-sdk": "^5.131",
+        "google/apiclient": "^2.18",
+        "nullform/telegram-gateway": "^1.1"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

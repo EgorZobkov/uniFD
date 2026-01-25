@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '64',
+  'name' => 'Республика Татарстан',
+  'alias' => 'respublika-tatarstan',
+  'country_id' => '1',
+  'temp_id' => '71',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Татарстан',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

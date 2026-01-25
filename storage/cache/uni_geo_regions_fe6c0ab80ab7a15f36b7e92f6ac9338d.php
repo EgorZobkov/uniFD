@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '2',
+  'name' => 'Алтай Республика',
+  'alias' => 'altaj-respublika',
+  'country_id' => '1',
+  'temp_id' => '2',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Алтай',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

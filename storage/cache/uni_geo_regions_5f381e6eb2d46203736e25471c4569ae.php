@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '70',
+  'name' => 'Удмуртская республика',
+  'alias' => 'udmurtskaya-respublika',
+  'country_id' => '1',
+  'temp_id' => '77',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Удмуртия',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

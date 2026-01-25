@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '61',
+  'name' => 'Смоленская область',
+  'alias' => 'smolenskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '68',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Смоленской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

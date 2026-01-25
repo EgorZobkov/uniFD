@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '10',
+  'name' => 'Бурятия республика',
+  'alias' => 'buryatiya-respublika',
+  'country_id' => '1',
+  'temp_id' => '17',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Бурятии',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '1',
+  'name' => 'Адыгея Республика',
+  'alias' => 'adygeya-respublika',
+  'country_id' => '1',
+  'temp_id' => '1',
+  'capital_latitude' => '53',
+  'capital_longitude' => '35',
+  'status' => '1',
+  'declension' => 'в Республике Адыгея',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

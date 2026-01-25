@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '33',
+  'name' => 'Красноярский край',
+  'alias' => 'krasnoyarskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '40',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Красноярском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

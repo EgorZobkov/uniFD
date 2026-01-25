@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '60',
+  'name' => 'Свердловская область',
+  'alias' => 'sverdlovskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '67',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Свердловской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

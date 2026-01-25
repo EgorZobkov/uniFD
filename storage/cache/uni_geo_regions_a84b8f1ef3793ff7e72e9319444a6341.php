@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '51',
+  'name' => 'Пензенская область',
+  'alias' => 'penzenskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '58',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Пензенской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

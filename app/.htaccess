@@ -1,0 +1,8 @@
+
+            Options -Indexes
+
+            <FilesMatch ~ "\.(php|htm|html|js)$">
+              Order allow,deny
+              Deny from all
+            </FilesMatch>        
+        

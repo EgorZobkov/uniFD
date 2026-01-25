@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '5',
+  'name' => 'Архангельская область',
+  'alias' => 'arhangelskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '5',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Архангельской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

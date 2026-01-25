@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '3',
+  'name' => 'Алтайский край',
+  'alias' => 'altajskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '3',
+  'capital_latitude' => '53.3606',
+  'capital_longitude' => '83.7636',
+  'status' => '1',
+  'declension' => 'в Алтайском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

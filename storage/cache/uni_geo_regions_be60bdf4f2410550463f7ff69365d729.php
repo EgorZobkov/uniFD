@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '37',
+  'name' => 'Ленинградская область',
+  'alias' => 'leningradskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '44',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Ленинградской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

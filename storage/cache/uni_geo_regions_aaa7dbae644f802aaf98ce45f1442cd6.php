@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '14',
+  'name' => 'Воронежская область',
+  'alias' => 'voronezhskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '21',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Воронежской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

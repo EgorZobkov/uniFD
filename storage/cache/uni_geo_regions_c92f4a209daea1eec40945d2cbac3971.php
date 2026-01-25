@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '32',
+  'name' => 'Краснодарский край',
+  'alias' => 'krasnodarskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '39',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Краснодарском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

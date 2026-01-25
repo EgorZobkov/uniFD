@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '28',
+  'name' => 'Кемеровская область',
+  'alias' => 'kemerovskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '35',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Кемеровской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

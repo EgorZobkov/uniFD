@@ -1,0 +1,104 @@
+[2026-01-21 20:16:23]: Uncaught Error: Call to undefined method App\Components\AdsCategories::outMainCategoriesMobileList() in /var/www/www-root/data/www/my-fd.ru/storage/cache/catalog.php:431
+Stack trace:
+#0 /var/www/www-root/data/www/my-fd.ru/app/Systems/View.php(84): require()
+#1 /var/www/www-root/data/www/my-fd.ru/app/Http/Controllers/CatalogController.php(56): App\Systems\View->render()
+#2 [internal function]: App\Http\Controllers\CatalogController->catalog()
+#3 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(270): call_user_func_array()
+#4 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(217): App\Systems\Router\RouterCommand->runMethodWithParams()
+#5 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(805): App\Systems\Router\RouterCommand->runRoute()
+#6 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(345): App\Systems\Router\Router->runRouteCommand()
+#7 /var/www/www-root/data/www/my-fd.ru/app/Systems/App.php(37): App\Systems\Router\Router->run()
+#8 /var/www/www-root/data/www/my-fd.ru/index.php(23): App\Systems\App->run()
+#9 {main}
+  thrown /var/www/www-root/data/www/my-fd.ru/storage/cache/catalog.php on line 431
+[2026-01-21 20:16:26]: Uncaught Error: Call to undefined method App\Components\AdsCategories::outMainCategoriesMobileList() in /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php:431
+Stack trace:
+#0 /var/www/www-root/data/www/my-fd.ru/app/Systems/View.php(84): require()
+#1 /var/www/www-root/data/www/my-fd.ru/app/Http/Controllers/HomeController.php(27): App\Systems\View->render()
+#2 [internal function]: App\Http\Controllers\HomeController->home()
+#3 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(270): call_user_func_array()
+#4 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(217): App\Systems\Router\RouterCommand->runMethodWithParams()
+#5 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(805): App\Systems\Router\RouterCommand->runRoute()
+#6 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(320): App\Systems\Router\Router->runRouteCommand()
+#7 /var/www/www-root/data/www/my-fd.ru/app/Systems/App.php(37): App\Systems\Router\Router->run()
+#8 /var/www/www-root/data/www/my-fd.ru/index.php(23): App\Systems\App->run()
+#9 {main}
+  thrown /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php on line 431
+[2026-01-21 20:16:40]: Uncaught Error: Call to undefined method App\Components\AdsCategories::outMainCategoriesMobileList() in /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php:431
+Stack trace:
+#0 /var/www/www-root/data/www/my-fd.ru/app/Systems/View.php(84): require()
+#1 /var/www/www-root/data/www/my-fd.ru/app/Http/Controllers/HomeController.php(27): App\Systems\View->render()
+#2 [internal function]: App\Http\Controllers\HomeController->home()
+#3 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(270): call_user_func_array()
+#4 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(217): App\Systems\Router\RouterCommand->runMethodWithParams()
+#5 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(805): App\Systems\Router\RouterCommand->runRoute()
+#6 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(320): App\Systems\Router\Router->runRouteCommand()
+#7 /var/www/www-root/data/www/my-fd.ru/app/Systems/App.php(37): App\Systems\Router\Router->run()
+#8 /var/www/www-root/data/www/my-fd.ru/index.php(23): App\Systems\App->run()
+#9 {main}
+  thrown /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php on line 431
+[2026-01-21 20:16:46]: Uncaught Error: Call to undefined method App\Components\AdsCategories::outMainCategoriesMobileList() in /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php:431
+Stack trace:
+#0 /var/www/www-root/data/www/my-fd.ru/app/Systems/View.php(84): require()
+#1 /var/www/www-root/data/www/my-fd.ru/app/Http/Controllers/HomeController.php(27): App\Systems\View->render()
+#2 [internal function]: App\Http\Controllers\HomeController->home()
+#3 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(270): call_user_func_array()
+#4 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(217): App\Systems\Router\RouterCommand->runMethodWithParams()
+#5 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(805): App\Systems\Router\RouterCommand->runRoute()
+#6 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(320): App\Systems\Router\Router->runRouteCommand()
+#7 /var/www/www-root/data/www/my-fd.ru/app/Systems/App.php(37): App\Systems\Router\Router->run()
+#8 /var/www/www-root/data/www/my-fd.ru/index.php(23): App\Systems\App->run()
+#9 {main}
+  thrown /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php on line 431
+[2026-01-21 20:16:59]: Uncaught Error: Call to undefined method App\Components\AdsCategories::outMainCategoriesMobileList() in /var/www/www-root/data/www/my-fd.ru/storage/cache/catalog.php:431
+Stack trace:
+#0 /var/www/www-root/data/www/my-fd.ru/app/Systems/View.php(84): require()
+#1 /var/www/www-root/data/www/my-fd.ru/app/Http/Controllers/CatalogController.php(56): App\Systems\View->render()
+#2 [internal function]: App\Http\Controllers\CatalogController->catalog()
+#3 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(270): call_user_func_array()
+#4 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(217): App\Systems\Router\RouterCommand->runMethodWithParams()
+#5 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(805): App\Systems\Router\RouterCommand->runRoute()
+#6 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(345): App\Systems\Router\Router->runRouteCommand()
+#7 /var/www/www-root/data/www/my-fd.ru/app/Systems/App.php(37): App\Systems\Router\Router->run()
+#8 /var/www/www-root/data/www/my-fd.ru/index.php(23): App\Systems\App->run()
+#9 {main}
+  thrown /var/www/www-root/data/www/my-fd.ru/storage/cache/catalog.php on line 431
+[2026-01-21 20:17:02]: Uncaught Error: Call to undefined method App\Components\AdsCategories::outMainCategoriesMobileList() in /var/www/www-root/data/www/my-fd.ru/storage/cache/catalog.php:431
+Stack trace:
+#0 /var/www/www-root/data/www/my-fd.ru/app/Systems/View.php(84): require()
+#1 /var/www/www-root/data/www/my-fd.ru/app/Http/Controllers/CatalogController.php(56): App\Systems\View->render()
+#2 [internal function]: App\Http\Controllers\CatalogController->catalog()
+#3 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(270): call_user_func_array()
+#4 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(217): App\Systems\Router\RouterCommand->runMethodWithParams()
+#5 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(805): App\Systems\Router\RouterCommand->runRoute()
+#6 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(345): App\Systems\Router\Router->runRouteCommand()
+#7 /var/www/www-root/data/www/my-fd.ru/app/Systems/App.php(37): App\Systems\Router\Router->run()
+#8 /var/www/www-root/data/www/my-fd.ru/index.php(23): App\Systems\App->run()
+#9 {main}
+  thrown /var/www/www-root/data/www/my-fd.ru/storage/cache/catalog.php on line 431
+[2026-01-21 20:17:13]: Uncaught Error: Call to undefined method App\Components\AdsCategories::outMainCategoriesMobileList() in /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php:431
+Stack trace:
+#0 /var/www/www-root/data/www/my-fd.ru/app/Systems/View.php(84): require()
+#1 /var/www/www-root/data/www/my-fd.ru/app/Http/Controllers/HomeController.php(27): App\Systems\View->render()
+#2 [internal function]: App\Http\Controllers\HomeController->home()
+#3 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(270): call_user_func_array()
+#4 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(217): App\Systems\Router\RouterCommand->runMethodWithParams()
+#5 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(805): App\Systems\Router\RouterCommand->runRoute()
+#6 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(320): App\Systems\Router\Router->runRouteCommand()
+#7 /var/www/www-root/data/www/my-fd.ru/app/Systems/App.php(37): App\Systems\Router\Router->run()
+#8 /var/www/www-root/data/www/my-fd.ru/index.php(23): App\Systems\App->run()
+#9 {main}
+  thrown /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php on line 431
+[2026-01-21 20:17:23]: Uncaught Error: Call to undefined method App\Components\AdsCategories::outMainCategoriesMobileList() in /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php:431
+Stack trace:
+#0 /var/www/www-root/data/www/my-fd.ru/app/Systems/View.php(84): require()
+#1 /var/www/www-root/data/www/my-fd.ru/app/Http/Controllers/HomeController.php(27): App\Systems\View->render()
+#2 [internal function]: App\Http\Controllers\HomeController->home()
+#3 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(270): call_user_func_array()
+#4 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/RouterCommand.php(217): App\Systems\Router\RouterCommand->runMethodWithParams()
+#5 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(805): App\Systems\Router\RouterCommand->runRoute()
+#6 /var/www/www-root/data/www/my-fd.ru/app/Systems/Router/Router.php(320): App\Systems\Router\Router->runRouteCommand()
+#7 /var/www/www-root/data/www/my-fd.ru/app/Systems/App.php(37): App\Systems\Router\Router->run()
+#8 /var/www/www-root/data/www/my-fd.ru/index.php(23): App\Systems\App->run()
+#9 {main}
+  thrown /var/www/www-root/data/www/my-fd.ru/storage/cache/home.php on line 431

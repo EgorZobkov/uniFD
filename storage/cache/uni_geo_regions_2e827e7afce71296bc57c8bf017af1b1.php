@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '50',
+  'name' => 'Северная Осетия Республика',
+  'alias' => 'severnaya-osetiya-respublika-alaniya',
+  'country_id' => '1',
+  'temp_id' => '57',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Северная Осетия ',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

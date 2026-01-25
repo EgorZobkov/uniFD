@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '63',
+  'name' => 'Тамбовская область',
+  'alias' => 'tambovskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '70',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Тамбовской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

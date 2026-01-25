@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '69',
+  'name' => 'Тюменская область',
+  'alias' => 'tyumenskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '76',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Тюменской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

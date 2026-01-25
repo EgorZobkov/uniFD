@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '34',
+  'name' => 'Республика Крым',
+  'alias' => 'respublika-krym',
+  'country_id' => '1',
+  'temp_id' => '41',
+  'capital_latitude' => '55.7522',
+  'capital_longitude' => '37.6156',
+  'status' => '1',
+  'declension' => 'в Республике Крым',
+  'seo_text' => '',
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

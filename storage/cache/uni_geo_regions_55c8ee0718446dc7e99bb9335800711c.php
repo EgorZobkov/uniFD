@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '21',
+  'name' => 'Кабардино-Балкарская Республика',
+  'alias' => 'kabardino-balkarskaya-respublika',
+  'country_id' => '1',
+  'temp_id' => '28',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Кабардино-Балкарии',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '24',
+  'name' => 'Калужская область',
+  'alias' => 'kaluzhskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '31',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Калужской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

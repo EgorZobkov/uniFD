@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '20',
+  'name' => 'Иркутская область',
+  'alias' => 'irkutskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '27',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Иркутской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

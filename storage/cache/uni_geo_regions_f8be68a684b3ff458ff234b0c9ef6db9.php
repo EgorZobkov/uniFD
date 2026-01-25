@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '62',
+  'name' => 'Ставропольский край',
+  'alias' => 'stavropolskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '69',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Ставропольском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

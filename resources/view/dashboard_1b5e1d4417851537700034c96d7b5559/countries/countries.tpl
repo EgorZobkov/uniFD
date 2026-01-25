@@ -1,0 +1,53 @@
+{% component breadcrumbs.tpl %}
+
+<div class="row g-4">
+
+  <div class="col-12 col-md-12">
+
+    <div class="card" >
+
+      <form class="formControlFilters" >
+
+        <div class="card-header flex-column flex-md-row">
+          <div class="text-end pt-3 pt-md-0">
+
+            <div class="control-filters-container" >
+
+            {% component control-filters-output.tpl %}
+            {% component control-filters-search.tpl %}
+
+            <div class="control-filters-container-item" >
+                <div class="btn-group">
+                  <button class="btn btn-primary dropdown-toggle waves-effect waves-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ translate("tr_fb3df31bf52df6c142a279ecdb6dd94c") }}
+                  </button>
+                  <ul class="dropdown-menu width100" >
+                    <li><span class="dropdown-item openModal" data-modal-id="addCountryModal" >{{ translate("tr_101b36a6c2adf66982ec93069d45c017") }}</span></li>
+                    <li><span class="dropdown-item openModal actionLoadCountriesFromList" data-modal-id="addCountryFromListModal" >{{ translate("tr_6a31df35e8a6d3df4d87466dc3054f1d") }}</span></li>
+                  </ul>
+                </div>
+            </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </form>
+
+      {% component countries/countries.tpl %}
+
+    </div>
+
+    {% if($template->pagination->totalItems): %}
+    <div class="mt-4 text-muted" >{{ translate("tr_6697cca28b154d276b9b1e9795ac7230") }} <strong>{{ $template->pagination->totalItems }}</strong>, {{ translate("tr_932b3194a5406d1e30c4f7d91d1c161f") }} <strong>{{ $template->pagination->totalPages }}</strong></div>
+    {% endif; %}
+
+    {{ $template->pagination->display() }} 
+
+  </div>
+
+</div>
+
+{{ $template->ui->tpl('countries/add-country.tpl')->modal("addCountry", "medium"); }}
+{{ $template->ui->tpl('countries/add-country-from-list.tpl')->modal("addCountryFromList", "small"); }}

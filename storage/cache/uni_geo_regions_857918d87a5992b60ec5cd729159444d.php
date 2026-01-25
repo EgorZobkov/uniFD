@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '77',
+  'name' => 'Чувашская республика',
+  'alias' => 'chuvashskaya-respublika',
+  'country_id' => '1',
+  'temp_id' => '84',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Чувашия',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

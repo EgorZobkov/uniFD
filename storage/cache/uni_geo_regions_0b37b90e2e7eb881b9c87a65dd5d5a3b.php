@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '71',
+  'name' => 'Ульяновская область',
+  'alias' => 'ulyanovskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '78',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Ульяновской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

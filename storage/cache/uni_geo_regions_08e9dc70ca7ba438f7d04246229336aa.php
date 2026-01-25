@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '78',
+  'name' => 'Республика Саха',
+  'alias' => 'yakutiya-respublika-saha',
+  'country_id' => '1',
+  'temp_id' => '85',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Саха',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

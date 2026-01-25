@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '30',
+  'name' => 'Коми Республика',
+  'alias' => 'komi-respublika',
+  'country_id' => '1',
+  'temp_id' => '37',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Коми',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

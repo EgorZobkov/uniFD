@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '65',
+  'name' => 'Тверская область',
+  'alias' => 'tverskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '72',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Тверской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

@@ -1,0 +1,32 @@
+<?php
+$this->container->router->group($this->container->config->app->dashboard_alias, function($router) {
+
+    $this->container->router->any('/users', 'Dashboard/UsersController@main', ['name' => 'dashboard-users', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->any('/user/card/:id', 'Dashboard/UsersController@card', ['name' => 'dashboard-user-card', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->any('/user/card/:id/security', 'Dashboard/UsersController@cardSecurity', ['name' => 'dashboard-user-card-security', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->any('/user/card/:id/transactions', 'Dashboard/UsersController@cardTransactions', ['name' => 'dashboard-user-card-transactions', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->any('/user/card/:id/deals', 'Dashboard/UsersController@cardDeals', ['name' => 'dashboard-user-card-deals', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->any('/user/card/:id/ads', 'Dashboard/UsersController@cardAds', ['name' => 'dashboard-user-card-ads', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->any('/user/card/:id/reviews', 'Dashboard/UsersController@cardReviews', ['name' => 'dashboard-user-card-reviews', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->any('/users/traffic', 'Dashboard/UsersController@allTraffic', ['name' => 'dashboard-users-traffic', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+
+    $this->container->router->xpost('/user/add', 'Dashboard/UsersController@add', ['name' => 'dashboard-user-add', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/user/delete', 'Dashboard/UsersController@delete', ['name' => 'dashboard-user-delete', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/users/multi-delete', 'Dashboard/UsersController@multiDelete', ['name' => 'dashboard-users-multi-delete', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/user/load-edit', 'Dashboard/UsersController@loadEdit', ['name' => 'dashboard-user-load-edit', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/user/edit', 'Dashboard/UsersController@edit', ['name' => 'dashboard-user-edit', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/user/edit-balance', 'Dashboard/UsersController@editBalance', ['name' => 'dashboard-user-edit-balance', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/users/load-data-chart', 'Dashboard/UsersController@loadDataChartWeekAndMonth', ['name' => 'dashboard-users-load-data-chart', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/users/send-access', 'Dashboard/UsersController@sendAccess', ['name' => 'dashboard-user-send-access', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/users/delete-auth-session', 'Dashboard/UsersController@deleteAuthSession', ['name' => 'dashboard-user-delete-auth-session', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/users/delete-auth-history', 'Dashboard/UsersController@deleteAuthHistory', ['name' => 'dashboard-user-delete-auth-history', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/users/generate-access-key', 'Dashboard/UsersController@generateAccessKey', ['name' => 'dashboard-user-generate-access-key', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/users/delete-access-key', 'Dashboard/UsersController@deleteAccessKey', ['name' => 'dashboard-user-delete-access-key', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/users/profile/auth', 'Dashboard/UsersController@profileAuth', ['name' => 'dashboard-user-profile-auth', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/user/verification-change-status', 'Dashboard/UsersController@changeStatusVerification', ['name' => 'dashboard-user-verification-change-status', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/user/edit-notifications', 'Dashboard/UsersController@editNotifications', ['name' => 'dashboard-user-edit-notifications', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    $this->container->router->xpost('/user/send-message', 'Dashboard/UsersController@sendMessage', ['name' => 'dashboard-user-send-message', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-chat']);
+
+    $this->container->router->xpost('/user/delete-tariff', 'Dashboard/UsersController@deleteTariff', ['name' => 'dashboard-user-delete-tariff', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-users']);
+    
+}, ['dashboard'=>true]);

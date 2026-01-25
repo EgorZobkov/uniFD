@@ -1,0 +1,1 @@
+<a data-id="<?php echo $value["id"]; ?>" href="<?php echo $app->component->blog_categories->buildAliases($value); ?>" class="<?php echo $active; ?>" >#<?php echo translateFieldReplace($value, "name"); ?></a>

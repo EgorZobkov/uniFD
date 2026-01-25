@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '57',
+  'name' => 'Самарская область',
+  'alias' => 'samarskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '64',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Самарской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

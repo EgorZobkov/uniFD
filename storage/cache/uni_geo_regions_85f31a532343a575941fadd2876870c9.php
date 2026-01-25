@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '72',
+  'name' => 'Хабаровский край',
+  'alias' => 'habarovskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '79',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Хабаровском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

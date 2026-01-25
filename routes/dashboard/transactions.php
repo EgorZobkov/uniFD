@@ -1,0 +1,14 @@
+<?php
+$this->container->router->group($this->container->config->app->dashboard_alias, function($router) {
+
+    $this->container->router->any('/transactions', 'Dashboard/TransactionsController@main', ['name' => 'dashboard-transactions', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+    $this->container->router->any('/transactions/statistics', 'Dashboard/TransactionsController@statistics', ['name' => 'dashboard-transactions-statistics', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+    $this->container->router->any('/transactions/operations', 'Dashboard/TransactionsController@operations', ['name' => 'dashboard-transactions-operations', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+    $this->container->router->xpost('/transaction/delete', 'Dashboard/TransactionsController@delete', ['name' => 'dashboard-transaction-delete', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+    $this->container->router->xpost('/transaction/operation/delete', 'Dashboard/TransactionsController@deleteOperation', ['name' => 'dashboard-transactions-operation-delete', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+    $this->container->router->xpost('/transaction/operation/load-card', 'Dashboard/TransactionsController@loadCardOperation', ['name' => 'dashboard-transactions-operation-load-card', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+    $this->container->router->xpost('/transaction/load-data-chart', 'Dashboard/TransactionsController@loadDataChartWeekAndMonth', ['name' => 'dashboard-transaction-load-data-chart', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+    $this->container->router->xpost('/transaction/statistics/load-data-chart', 'Dashboard/TransactionsController@loadDataChartMonth', ['name' => 'dashboard-transactions-statistics-load-data-chart', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+    $this->container->router->xpost('/transactions/multi-delete', 'Dashboard/TransactionsController@multiDelete', ['name' => 'dashboard-transactions-multi-delete', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-transactions']);
+
+}, ['dashboard'=>true]);

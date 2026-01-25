@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '11',
+  'name' => 'Владимирская область',
+  'alias' => 'vladimirskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '18',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'во Владимирской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

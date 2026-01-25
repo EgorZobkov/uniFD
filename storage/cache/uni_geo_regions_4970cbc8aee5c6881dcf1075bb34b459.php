@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '12',
+  'name' => 'Волгоградская область',
+  'alias' => 'volgogradskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '19',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Волгоградской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

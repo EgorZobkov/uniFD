@@ -1,0 +1,4 @@
+User-agent: *
+Host: https://my-fd.ru
+Sitemap: https://my-fd.ru/sitemap.xml
+Disallow: /?*

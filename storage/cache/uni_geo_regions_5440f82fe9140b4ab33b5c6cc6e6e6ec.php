@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '52',
+  'name' => 'Пермский край',
+  'alias' => 'permskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '59',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Пермском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

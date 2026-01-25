@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '25',
+  'name' => 'Камчатский край',
+  'alias' => 'kamchatskij-kraj',
+  'country_id' => '1',
+  'temp_id' => '32',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Камчатском крае',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

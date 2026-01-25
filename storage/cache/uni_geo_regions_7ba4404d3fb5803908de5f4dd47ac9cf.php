@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '6',
+  'name' => 'Астраханская область',
+  'alias' => 'astrahanskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '6',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Астраханской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

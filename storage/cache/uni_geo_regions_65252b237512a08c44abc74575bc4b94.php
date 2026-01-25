@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '73',
+  'name' => 'Ханты-Мансийский автономный округ',
+  'alias' => 'hanty-mansijskij-avtonomnyj-okrug-yugra',
+  'country_id' => '1',
+  'temp_id' => '80',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Ханты-Мансийском автономном округе',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

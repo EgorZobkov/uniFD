@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '40',
+  'name' => 'Марий Эл республика',
+  'alias' => 'marij-el-respublika',
+  'country_id' => '1',
+  'temp_id' => '47',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Марий Эл',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

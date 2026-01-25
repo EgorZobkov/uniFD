@@ -1,0 +1,19 @@
+<?php
+$this->container->router->group($this->container->config->app->dashboard_alias, function($router) {
+
+    $this->container->router->any('/import-export', 'Dashboard/ImportExportController@main', ['name' => 'dashboard-import-export', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->any('/import-export/feeds', 'Dashboard/ImportExportController@feeds', ['name' => 'dashboard-import-export-feeds', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->any('/import-export/import/card/:id', 'Dashboard/ImportExportController@card', ['name' => 'dashboard-import-card', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->any('/import-export/import/logs/:id', 'Dashboard/ImportExportController@logs', ['name' => 'dashboard-import-logs', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/import/start/', 'Dashboard/ImportExportController@start', ['name' => 'dashboard-import-start', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/import/save/', 'Dashboard/ImportExportController@saveEdit', ['name' => 'dashboard-import-save', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/import/search/city', 'Dashboard/ImportExportController@searchCity', ['name' => 'dashboard-import-search-city', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/import/search/user', 'Dashboard/ImportExportController@searchUser', ['name' => 'dashboard-import-search-user', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/add', 'Dashboard/ImportExportController@add', ['name' => 'dashboard-import-export-add', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/delete', 'Dashboard/ImportExportController@delete', ['name' => 'dashboard-import-export-delete', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/feed/add', 'Dashboard/ImportExportController@addFeed', ['name' => 'dashboard-import-export-feed-add', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/feed/load-edit', 'Dashboard/ImportExportController@loadEditFeed', ['name' => 'dashboard-import-export-feed-load-edit', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/feed/edit', 'Dashboard/ImportExportController@editFeed', ['name' => 'dashboard-import-export-feed-edit', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+    $this->container->router->xpost('/import-export/feed/delete', 'Dashboard/ImportExportController@deleteFeed', ['name' => 'dashboard-import-export-feed-delete', 'before' => ['DashboardMiddleware', 'DashboardTranslateMiddleware'], 'route_id'=>'dashboard-import-export']);
+
+}, ['dashboard'=>true]);

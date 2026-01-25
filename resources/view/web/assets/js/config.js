@@ -1,0 +1,4 @@
+
+           'use strict';
+            export default {"prefix_path":"","system_default_currency":"₽","system_currency_spacing":"1","system_currency_position":"end","board_publication_max_size_image":"25","board_publication_max_size_video":"50","stories_max_size_image":"20","stories_max_size_video":"50","stories_accept_upload_formats":"accept=\"image\/jpeg,image\/jpg,image\/png,image\/gif,image\/webp,image\/heic,image\/HEIC,video\/mp4,video\/MOV\"","allowed_extensions_images":["jpeg","jpg","png","gif","webp","heic","HEIC"],"allowed_extensions_videos":["mp4","MOV"],"geo_autodetect":true};
+        

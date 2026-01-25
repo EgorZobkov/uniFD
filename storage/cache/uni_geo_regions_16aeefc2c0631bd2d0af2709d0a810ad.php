@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '38',
+  'name' => 'Липецкая область',
+  'alias' => 'lipeckaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '45',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Липецкой области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

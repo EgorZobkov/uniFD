@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '74',
+  'name' => 'Хакасия республика',
+  'alias' => 'hakasiya-respublika',
+  'country_id' => '1',
+  'temp_id' => '81',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Хакасия',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

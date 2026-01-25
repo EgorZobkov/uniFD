@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '75',
+  'name' => 'Челябинская область',
+  'alias' => 'chelyabinskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '82',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Челябинской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

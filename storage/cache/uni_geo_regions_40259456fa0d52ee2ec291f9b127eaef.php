@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '23',
+  'name' => 'Калмыкия Республика',
+  'alias' => 'kalmykiya-respublika',
+  'country_id' => '1',
+  'temp_id' => '30',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Калмыкия',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

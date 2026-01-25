@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '8',
+  'name' => 'Белгородская область',
+  'alias' => 'belgorodskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '15',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Белгородской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

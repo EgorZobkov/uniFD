@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '15',
+  'name' => 'Дагестан Республика',
+  'alias' => 'dagestan-respublika',
+  'country_id' => '1',
+  'temp_id' => '22',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Дагестан',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

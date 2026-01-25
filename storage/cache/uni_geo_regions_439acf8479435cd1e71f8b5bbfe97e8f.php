@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '18',
+  'name' => 'Ивановская область',
+  'alias' => 'ivanovskaya-oblast',
+  'country_id' => '1',
+  'temp_id' => '25',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Ивановской области',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>

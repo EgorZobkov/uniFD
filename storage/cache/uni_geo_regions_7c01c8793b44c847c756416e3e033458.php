@@ -1,0 +1,15 @@
+<?php return array (
+  'id' => '27',
+  'name' => 'Карелия республика',
+  'alias' => 'kareliya-respublika',
+  'country_id' => '1',
+  'temp_id' => '34',
+  'capital_latitude' => NULL,
+  'capital_longitude' => NULL,
+  'status' => '1',
+  'declension' => 'в Республике Карелия',
+  'seo_text' => NULL,
+  'name_en' => NULL,
+  'declension_en' => NULL,
+  'seo_text_en' => NULL,
+); ?>
