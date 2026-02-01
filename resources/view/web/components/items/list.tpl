@@ -1,5 +1,5 @@
 <div class="col-12" >
-  <a class="container-item-list <?php if($value->service_highlight_status){ echo 'container-item-list-highlight'; } ?>" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" <?php if($app->settings->board_catalog_ad_option_opening == "blank"){ echo 'target="_blank"'; } ?> >
+  <a class="container-item-list <?php if($value->service_highlight_status){ echo 'container-item-list-highlight'; } ?>" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" >
 
     <div class="row" >
 
