@@ -60,6 +60,7 @@ CREATE TABLE `uni_ads_data` (
   `partner_link` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `import_item_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `delivery_status` int NOT NULL DEFAULT '0',
+  `delivery_shipping_status` int NOT NULL DEFAULT '0',
   `total_rating` float NOT NULL DEFAULT '0',
   `total_reviews` int NOT NULL DEFAULT '0',
   `partner_button_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
