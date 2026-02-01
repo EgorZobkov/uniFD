@@ -149,6 +149,12 @@
               <p class="ad-card-subtitle" >{{ translate("tr_9a2f0ded92075434b49c94329297a21c") }}</p>
 
               <div>{{ $template->component->ads->outGeoAndAddressInAdCard($data) }}</div>
+
+              {% if($data->delivery_shipping_status == 1): %}
+              <div>Возможна пересылка</div>
+              {% elseif($data->delivery_shipping_status == 0): %}
+              <div>Без пересылки</div>
+              {% endif %}
               
               {% if($data->delivery_shipping_status == 1): %}
               <div>Возможна пересылка</div>
