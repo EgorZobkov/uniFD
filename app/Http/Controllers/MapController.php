@@ -201,7 +201,7 @@ public function loadItem()
 
             </div>
 
-            <h4 class="mt20 text-break-word" ><a href="<?php echo $this->component->ads->buildAliasesAdCard($data); ?>" target="_blank" ><?php echo $data->title; ?></a></h4>
+            <h4 class="mt20 text-break-word" ><a href="<?php echo $this->component->ads->buildAliasesAdCard($data); ?>" ><?php echo $data->title; ?></a></h4>
 
             <div class="mt20" >
                 <?php echo $this->component->ads->outMediaGalleryInCard($data, ["height"=>"150px"]); ?>

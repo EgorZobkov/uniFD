@@ -1,5 +1,5 @@
 <div class="col-12" >
-  <a class="container-item-list-map <?php if($value->service_highlight_status){ echo 'container-item-list-highlight'; } ?>" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" target="_blank" >
+  <a class="container-item-list-map <?php if($value->service_highlight_status){ echo 'container-item-list-highlight'; } ?>" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" >
 
     <div class="row" >
 
