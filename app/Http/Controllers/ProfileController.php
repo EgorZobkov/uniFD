@@ -518,6 +518,14 @@ public function settingsEdit()
         }
     }
 
+    $cityId = isset($_POST['city_id']) ? (int)$_POST['city_id'] : 0;
+
+    if($cityId){
+        if(!$this->component->geo->getCityData($cityId)){
+            $answer['city_id'] = translate("tr_47182458a9b56818cb4a15ecbc3accc2");
+        }
+    }
+
     if(empty($answer)){
 
         if($_POST['notifications']){
@@ -534,7 +542,7 @@ public function settingsEdit()
             $notifications_method = "email";
         }
 
-        $this->model->users->cacheKey(["id"=>$this->user->data->id])->update(["name"=>$_POST['name'],"surname"=>$_POST['surname'],"phone"=>$this->clean->phone($_POST['phone']),"email"=>$_POST['email'],"contacts"=>$this->component->profile->buildContacts($_POST['contacts']), "notifications"=>$notifications, "user_status"=>(int)$_POST['user_status'] ?: 1, "alias"=>$alias, "organization_name"=>$_POST['organization_name'], "notifications_method"=>$notifications_method, "messenger_token_id"=>$messenger_token_id], $this->user->data->id);
+        $this->model->users->cacheKey(["id"=>$this->user->data->id])->update(["name"=>$_POST['name'],"surname"=>$_POST['surname'],"phone"=>$this->clean->phone($_POST['phone']),"email"=>$_POST['email'],"contacts"=>$this->component->profile->buildContacts($_POST['contacts']), "notifications"=>$notifications, "user_status"=>(int)$_POST['user_status'] ?: 1, "alias"=>$alias, "organization_name"=>$_POST['organization_name'], "notifications_method"=>$notifications_method, "messenger_token_id"=>$messenger_token_id, "city_id"=>$cityId], $this->user->data->id);
 
         return json_answer(["status"=>true, "answer"=>translate("tr_481f846c0f4fa251363447107c663265")]);
 

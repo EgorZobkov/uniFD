@@ -21,6 +21,7 @@ CREATE TABLE `uni_users` (
   `time_create` timestamp NULL DEFAULT NULL,
   `status` int NOT NULL DEFAULT '1',
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `city_id` int NOT NULL DEFAULT '0',
   `time_last_activity` timestamp NULL DEFAULT NULL,
   `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `role_id` int NOT NULL DEFAULT '0',
@@ -56,6 +57,7 @@ CREATE TABLE `uni_users` (
 ALTER TABLE `uni_users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `status` (`status`),
+  ADD KEY `city_id` (`city_id`),
   ADD KEY `time_create` (`time_create`);
 
 --

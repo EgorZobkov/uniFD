@@ -148,10 +148,15 @@
             <div class="profile-settings-section-item" >
                <div class="row" >
                  <div class="col-md-3" >
-                   <label>{{ translate("tr_6a061313d22e51e0f25b7cd4dc065233") }}</label>
+                   <label>{{ translate("tr_06d897a2b68c63493b65390fe35e7a2a") }}</label>
                  </div>
                  <div class="col-md-6" >
-                    <input type="text" class="form-control" name="contacts[max]" value="{{ $template->user->data->contacts->max }}" >
+                    <div class="input-geo-search-container profile-search-city" >
+                      <input type="text" class="form-control" placeholder="{{ translate("tr_63c324fe0008bda6b72c9f1ce11e8056") }}" value="{% if($template->user->data->city_id): %}{{ $template->component->geo->outFullNameCity((array)$template->component->geo->getCityData($template->user->data->city_id)) }}{% endif %}" >
+                      <div class="input-geo-search-container-result" ></div>
+                    </div>
+                    <input type="hidden" name="city_id" value="{{ $template->user->data->city_id }}" >
+                    <label class="form-label-error" data-name="city_id"></label>
                  </div>
                </div>
             </div>

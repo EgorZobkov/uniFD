@@ -181,6 +181,46 @@ $(document).ready(function () {
 
    });
 
+   $(document).on('input click','.profile-search-city > input', function (e) {  
+
+      var parent = $(this).parents(".input-geo-search-container");
+      var query = $(this).val();
+
+      if (searchTimeout != null) {
+        clearTimeout(searchTimeout);
+      }
+
+      if($(this).val().length != 0){
+        searchTimeout = setTimeout(function() {
+          searchTimeout = null;
+          helpers.request({url:"geo-search-city", data: {query: query}}, function(data) {
+
+             if(data["answer"]){
+                parent.find(".input-geo-search-container-result").html(data["answer"]).fadeIn(100);
+             }else{
+                parent.find(".input-geo-search-container-result").html("").hide();
+             }
+
+          });
+        }, 200);
+      }else{
+          parent.find(".input-geo-search-container-result").html("").hide();
+      }
+
+      e.preventDefault();
+
+   });
+
+   $(document).on('click','.profile-search-city .geo-city-item', function (e) {  
+
+      $("input[name=city_id]").val($(this).data("id"));
+      $(".profile-search-city input").val($(this).html());
+      $(".input-geo-search-container-result").hide();
+
+      e.preventDefault();
+
+   });
+
    $(document).on('click','.actionSettingsDeleteProfile', function (e) {  
 
       helpers.deleteByAlert("profile-settings-delete");
