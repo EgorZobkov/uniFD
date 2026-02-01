@@ -1807,18 +1807,6 @@ public function outMapAndOptionsInAdCreate($city_id=0, $data=[]){
         ';
     }
 
-    $content .= '
-        <div class="ad-create-options-container-item" >
-            <h5 class="ad-create-options-container-item-title" > <strong>'.translate("tr_80148fa5ada7bcd36bf3b351ee3ca3b0").'</strong> </h5>
-
-            <div class="input-geo-search-container ad-create-search-address" >
-              <input type="text" name="geo_address" class="form-control mt20" placeholder="'.translate("tr_9d66aa312e1e28e241ba5292f8898593").'" value="'.$data->address.'" >
-              <div class="input-geo-search-container-result" ></div>
-            </div>
-            <div class="map-container initMapAddress" id="initMapAddress" ></div>
-        </div>
-    ';
-
     return $content;
 
 }
@@ -2447,6 +2435,7 @@ public function publication($params=[], $user_id=0, $admin=false){
         "partner_link"=>$params["partner_link"] ?: null,
         "booking_status"=>(int)$app->component->ads_categories->categories[$params['category_id']]["booking_status"],
         "delivery_status"=>(int)$params["delivery_status"],
+        "delivery_shipping_status"=>(int)$params["delivery_shipping_status"],
         "partner_button_name"=>trimStr($params["partner_button_name"],60, false) ?: null,
         "partner_button_color"=>$params["partner_button_color"] ?: null,
     ]);
@@ -2708,6 +2697,7 @@ public function update($params=[], $user_id=0, $ad_id=0, $admin=false){
         "partner_link"=>$params["partner_link"] ?: null,
         "booking_status"=>$app->component->ads_categories->categories[$params['category_id']]["booking_status"],
         "delivery_status"=>(int)$params["delivery_status"],
+        "delivery_shipping_status"=>(int)$params["delivery_shipping_status"],
         "partner_button_name"=>trimStr($params["partner_button_name"],60, false) ?: null,
         "partner_button_color"=>$params["partner_button_color"] ?: null,
     ], $ad_id);

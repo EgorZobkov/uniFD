@@ -84,6 +84,7 @@ public function adUpdate($params=[], $user_id=0, $ad_id=0){
         "partner_link"=>$params["partner_link"] ?: null,
         "booking_status"=>$app->component->ads_categories->categories[$params['category_id']]["booking_status"],
         "delivery_status"=>(int)$params["delivery_status"],
+        "delivery_shipping_status"=>(int)$params["delivery_shipping_status"],
         "partner_button_name"=>trimStr($params["partner_button_name"],60, false) ?: null,
         "partner_button_color"=>$params["partner_button_color"] ?: null,
     ], $ad_id);
