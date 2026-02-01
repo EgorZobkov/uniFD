@@ -32,7 +32,7 @@ public function outByCode($code=null){
 
             if($value["type"] == "banner"){
                 ?>
-                <a class="advertising-banner-item actionAdvertisingClick swiper-slide" data-code="<?php echo $code; ?>" href="<?php echo $value["link"]; ?>" target="_blank" >
+                <a class="advertising-banner-item actionAdvertisingClick swiper-slide" data-code="<?php echo $code; ?>" href="<?php echo $value["link"]; ?>" >
                     <img src="<?php echo $app->storage->name($value["image"])->get(); ?>">
                 </a>
                 <?php

@@ -1,3 +1,16 @@
+:root {
+  --bs-root-font-size: 16px;
+  --bs-body-font-size: 1rem;
+  --bs-body-line-height: 1.5;
+  --bs-btn-font-size: 1rem;
+  --bs-dropdown-font-size: 1rem;
+  --bs-navbar-brand-font-size: 1rem;
+  --bs-pagination-font-size: 0.9375rem;
+  --bs-tooltip-font-size: 0.875rem;
+  --bs-popover-font-size: 0.9375rem;
+  --bs-popover-header-font-size: 1rem;
+}
+
 
 .light-style .menu .app-brand.demo {
   height: 64px;

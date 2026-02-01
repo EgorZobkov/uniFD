@@ -1,5 +1,5 @@
 <div class="col" >
-  <a class="container-item-grid <?php if($value->service_highlight_status){ echo 'container-item-grid-highlight'; } ?>" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" <?php if($app->settings->board_catalog_ad_option_opening == "blank"){ echo 'target="_blank"'; } ?> >
+ <a class="container-item-grid <?php if($value->service_highlight_status){ echo 'container-item-grid-highlight'; } ?>" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" > <a class="container-item-grid <?php if($value->service_highlight_status){ echo 'container-item-grid-highlight'; } ?>" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" <?php if($app->settings->board_catalog_ad_option_opening == "blank"){ echo 'target="_blank"'; } ?> >
     <div class="container-item-images" <?php echo $app->component->ads->setStyleHeightItemImage(); ?> >
 
       <?php echo $app->component->ads->outItemCardFavorite($value, $app->user->data->id) ?>

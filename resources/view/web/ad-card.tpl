@@ -150,6 +150,12 @@
 
               <div>{{ $template->component->ads->outGeoAndAddressInAdCard($data) }}</div>
               
+              {% if($data->delivery_shipping_status == 1): %}
+              <div>Возможна пересылка</div>
+              {% elseif($data->delivery_shipping_status == 0): %}
+              <div>Без пересылки</div>
+              {% endif %}
+              
               {{ $template->component->ads->outGeoMetroInAdCard($data) }}
 
               {% if($data->address_latitude && $data->address_longitude): %}

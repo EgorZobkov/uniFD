@@ -192,6 +192,15 @@ $(document).ready(function () {
 
    });
 
+   $(document).on('click', '.ad-create-change-city', function (e) {
+
+      e.preventDefault();
+      $(this).closest(".ad-create-current-city").hide();
+      $(".ad-create-search-city-container").show();
+
+   });
+
+
    $(document).on('click','.ad-create-search-city .geo-city-item', function (e) {  
 
       $("input[name=geo_city_id]").val($(this).data("id"));

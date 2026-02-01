@@ -1,9 +1,11 @@
 html{
     height: 100%;
+    font-size: 16px;
 }
 body{
     font-family: 'Manrope', sans-serif;
     background-color: white;
+    font-size: 1rem;
     font-size: 16px;
     color: #333333;
     display: flex;
@@ -19,7 +21,7 @@ a:hover{
     color: #43E9E4;
 }
 label{
-    font-size: 15px;
+    font-size: 1rem;
 }
 button, 
 button:active, 
@@ -31,7 +33,7 @@ input, textarea{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;    
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 @font-face {
@@ -41,14 +43,14 @@ input, textarea{
   src: local('ALS Rubl'), url('../fonts/rouble.woff') format('woff');
 }
 .btn{
-    font-size: 15px;
+    font-size: 1rem;
 }
 hr{
     height: 1px; background-color: #999999; color: #999999; border: none;
 }
 
 h1{
-    font-size: 41px;
+    font-size: 2.25rem;
 }
 
 .container{
@@ -216,7 +218,7 @@ h1{
 }
 .header-wow-mobile-category a{
     color: black; display: inline-block; text-align: center; width: 75px; scroll-snap-align: start; margin: 0 5px; text-decoration: none;
-    display: block; word-break: break-all; font-size: 12px;
+    display: block; word-break: break-all; font-size: 0.75rem;
 }
 .header-wow-mobile-category a:hover{
     color: #f95146;
@@ -4708,17 +4710,18 @@ footer{
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     background-color: transparent;
     padding: 10px 8px;
     border-radius: 12px;
     overflow: hidden;
-    height: 95px;
-    width: 95px;
+    height: 105px;
+    width: 105px;
     position: relative;
     margin-bottom: 0;
     grid-row: 1;
+    gap: 6px;
 }
 
 .home-widget-categories-item:not(:last-child){ 
@@ -4742,18 +4745,23 @@ footer{
 }
 
 .home-widget-categories-item div{
-    z-index: 5;
+  z-index: 5;
     color: black;
     position: relative;
     font-size: 16px;
     line-height: 1.2;
+    min-height: 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
 }
 
 .home-widget-categories-item img{
     height: 46px;
     width: auto;
     max-width: 48px;
-    margin-bottom: 6px;
     order: 0;
 }
 

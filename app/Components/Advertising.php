@@ -206,7 +206,7 @@ public function outByCode($code=null){
 
             if($value["type"] == "banner"){
                 ?>
-                <a class="advertising-banner-item actionAdvertisingClick swiper-slide" data-code="<?php echo $code; ?>" href="<?php echo $value["link"]; ?>" target="_blank" >
+                <a class="advertising-banner-item actionAdvertisingClick swiper-slide" data-code="<?php echo $code; ?>" href="<?php echo $value["link"]; ?>" >
                     <img src="<?php echo $app->storage->name($value["image"])->get(); ?>">
                 </a>
                 <?php
@@ -272,7 +272,7 @@ public function outInResults($index=0, $options=[]){
                 if($value["result_view"] == "list" && $result_view == "list"){
                     $results .= '
                     <div class="advertising-banner-container" >
-                        <a class="advertising-banner-item actionAdvertisingClick" data-code="'.$value["uniq_code"].'" href="'.$value["link"].'" target="_blank" >
+                        <a class="advertising-banner-item actionAdvertisingClick" data-code="'.$value["uniq_code"].'" href="'.$value["link"].'" >
                             <img src="'.$app->storage->name($value["image"])->get().'">
                         </a>
                     </div>
@@ -281,7 +281,7 @@ public function outInResults($index=0, $options=[]){
                     $results .= '
                     <div class="'.$options["col-grid"].'" >
                         <div class="advertising-banner-grid-container" >
-                            <a class="advertising-banner-grid-item actionAdvertisingClick" data-code="'.$value["uniq_code"].'" href="'.$value["link"].'" target="_blank" >
+                            <a class="advertising-banner-grid-item actionAdvertisingClick" data-code="'.$value["uniq_code"].'" href="'.$value["link"].'" >
                                 <img src="'.$app->storage->name($value["image"])->get().'">
                             </a>
                         </div>

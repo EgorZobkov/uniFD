@@ -1,5 +1,5 @@
 <div class="col-md-6 col-6 col-sm-6 col-lg-3" >
-  <a class="container-item-grid" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" <?php if($app->settings->board_catalog_ad_option_opening == "blank"){ echo 'target="_blank"'; } ?> >
+  <a class="container-item-grid" href="<?php echo $app->component->ads->buildAliasesAdCard($value); ?>" >
     <div class="container-item-images" <?php echo $app->component->ads->setStyleHeightItemImage(); ?> >
 
       <?php echo $app->component->ads->outItemCardFavorite($value, $app->user->data->id) ?>

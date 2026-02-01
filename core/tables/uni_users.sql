@@ -21,6 +21,7 @@ CREATE TABLE `uni_users` (
   `time_create` timestamp NULL DEFAULT NULL,
   `status` int NOT NULL DEFAULT '1',
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `city_id` int NOT NULL DEFAULT '0',
   `time_last_activity` timestamp NULL DEFAULT NULL,
   `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `role_id` int NOT NULL DEFAULT '0',
@@ -42,6 +43,7 @@ CREATE TABLE `uni_users` (
   `notifications` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `import_item_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `delivery_status` int NOT NULL DEFAULT '1',
+  `delivery_shipping_status` int NOT NULL DEFAULT '0',
   `firebase_token` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `card_status_text` text COLLATE utf8mb4_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -56,6 +58,7 @@ CREATE TABLE `uni_users` (
 ALTER TABLE `uni_users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `status` (`status`),
+  ADD KEY `city_id` (`city_id`),
   ADD KEY `time_create` (`time_create`);
 
 --

@@ -303,6 +303,22 @@ $chain = $app->component->ads_categories->chainCategory($data->category_id);
 
           }
 
+
+           ?>
+
+          <div class="ad-create-options-container-item-extra" >
+              <label class="switch">
+                <input type="checkbox" class="switch-input" name="delivery_shipping_status" value="1" <?php if($ad){ echo $ad->delivery_shipping_status ? 'checked=""' : ''; }else{ echo $data->delivery_shipping_status ? 'checked=""' : ''; } ?> >
+                <span class="switch-toggle-slider">
+                  <span class="switch-on"></span>
+                  <span class="switch-off"></span>
+                </span>
+                <span class="switch-label">Возможность пересылки</span>
+              </label>
+          </div>
+
+          <?php
+
           if($app->user->data->service_tariff->items->autorenewal){
 
             ?>
@@ -348,23 +364,45 @@ $chain = $app->component->ads_categories->chainCategory($data->category_id);
 
       <?php } ?>
 
-      <?php if($app->component->ads_categories->categories[$data->category_id]["change_city_status"] && $app->settings->active_countries){ ?>
+      <?php if($app->settings->active_countries){ ?>
 
       <div class="ad-create-options-container-item" >
           
           <h5 class="ad-create-options-container-item-title" > <strong><?php echo translate("tr_06d897a2b68c63493b65390fe35e7a2a"); ?></strong> </h5>
 
-          <div class="input-geo-search-container ad-create-search-city" >
-            <input type="text" class="form-control" placeholder="<?php echo translate("tr_63c324fe0008bda6b72c9f1ce11e8056"); ?>" value="<?php echo $ad ? $app->component->geo->outFullNameCity((array)$ad->geo) : ''; ?>" >
-            <div class="input-geo-search-container-result" ></div>
+          <?php
+            $user_city = $app->user->data->city_id ? $app->component->geo->getCityData($app->user->data->city_id) : null;
+            $user_city_name = $user_city ? $app->component->geo->outFullNameCity((array)$user_city) : null;
+            $city_value = $ad ? $app->component->geo->outFullNameCity((array)$ad->geo) : ($user_city_name ?: "");
+            $map_city_id = $ad ? $ad->city_id : ($data->city_id ?: ($user_city ? $user_city->id : 0));
+          ?>
+
+          <div class="row" >
+            <div class="col-md-6" ><label class="form-control-label" >Город продажи</label></div>
+            <div class="col-md-6" >
+              <div class="input-geo-search-container ad-create-search-city" >
+                <input type="text" class="form-control" placeholder="Название города" value="<?php echo $city_value; ?>" >
+                <div class="input-geo-search-container-result" ></div>
+              </div>
+              <label class="form-label-error" data-name="geo_city_id"></label>
+            </div>
           </div>
 
-          <label class="form-label-error" data-name="geo_city_id"></label>
+        <div class="ad-create-options-container-item-extra mt10" >
+          <label class="switch">
+            <input type="checkbox" class="switch-input" name="delivery_shipping_status" value="1" <?php if($ad){ echo $ad->delivery_shipping_status ? 'checked=""' : ''; }else{ echo $data->delivery_shipping_status ? 'checked=""' : ''; } ?> >
+            <span class="switch-toggle-slider">
+              <span class="switch-on"></span>
+              <span class="switch-off"></span>
+            </span>
+            <span class="switch-label">Возможна пересылка</span>
+          </label>
+        </div>
 
       </div>
 
-      <div class="ad-create-options-container-item-box-geo" <?php if($ad){ echo $ad->city_id ? 'style="display: block;"' : 'style="display: none;"'; }else{ echo $data->city_id ? 'style="display: block;"' : 'style="display: none;"'; } ?> >
-          <?php echo $app->component->ads->outMapAndOptionsInAdCreate($ad ? $ad->city_id : $data->city_id, $ad); ?>
+      <div class="ad-create-options-container-item-box-geo" <?php if($ad){ echo $ad->city_id ? 'style="display: block;"' : 'style="display: none;"'; }else{ echo $map_city_id ? 'style="display: block;"' : 'style="display: none;"'; } ?> >
+          <?php echo $app->component->ads->outMapAndOptionsInAdCreate($map_city_id, $ad); ?>
       </div>
 
       <?php } ?>

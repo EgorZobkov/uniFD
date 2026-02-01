@@ -46,19 +46,7 @@ public function outMapAndOptionsInAdCreate($city_id=0, $data=[]){
             </div>
         ';
     }
-
-    $content .= '
-        <div class="ad-create-options-container-item" >
-            <h5 class="ad-create-options-container-item-title" > <strong>'.translate("tr_80148fa5ada7bcd36bf3b351ee3ca3b0").'</strong> </h5>
-
-            <div class="input-geo-search-container ad-create-search-address" >
-              <input type="text" name="geo_address" class="form-control mt20" placeholder="'.translate("tr_9d66aa312e1e28e241ba5292f8898593").'" value="'.$data->address.'" >
-              <div class="input-geo-search-container-result" ></div>
-            </div>
-            <div class="map-container initMapAddress" id="initMapAddress" ></div>
-        </div>
-    ';
-
+    
     return $content;
 
 }

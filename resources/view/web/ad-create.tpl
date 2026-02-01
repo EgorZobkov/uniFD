@@ -26,7 +26,7 @@
   </div>
 
   <input type="hidden" name="category_id" value="" >
-  <input type="hidden" name="geo_city_id" value="" >
+  <input type="hidden" name="geo_city_id" value="{{ $template->user->data->city_id ?: '' }}" >
   <input type="hidden" name="geo_address_latitude" value="" >
   <input type="hidden" name="geo_address_longitude" value="" >
   <input type="hidden" name="geo_latitude" value="" >

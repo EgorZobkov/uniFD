@@ -90,6 +90,7 @@ public function adData($value=[]){
             "completed" => false, 
         ],
         "condition_status"=>$value->condition_new_status ? true : false, 
+        "delivery_shipping_status"=>$value->delivery_shipping_status ? true : false,
         "highlight_status"=>$value->service_highlight_status ? true : false,
         "type_goods"=>$value->category->type_goods ?: null,
     ];
