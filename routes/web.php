@@ -108,7 +108,7 @@ $this->container->router->xpost('/chat/channel-disable-notify', 'ChatController@
 $this->container->router->xpost('/chat/upload-attach', 'ChatController@uploadAttach', ['name' => 'chat-upload-attach', 'before' => ['WebTranslateMiddleware', 'PostMiddleware', 'VerificationAuthMiddleware', 'VerifyCsrfTokenMiddleware']]);
 $this->container->router->xpost('/chat/send-request-review', 'ChatController@sendRequestReview', ['name' => 'chat-send-request-review', 'before' => ['WebTranslateMiddleware', 'PostMiddleware', 'VerificationAuthMiddleware', 'VerifyCsrfTokenMiddleware']]);
 
-$this->container->router->get('/ad/create/', 'AdController@create', ['name' => 'ad-create', 'before' => ['WebTranslateMiddleware', 'WebMiddleware']]);
+$this->container->router->get('/ad/create/', 'AdController@create', ['name' => 'ad-create', 'before' => ['WebTranslateMiddleware', 'WebMiddleware', 'VerificationAuthMiddleware']]);
 $this->container->router->get('/ad/create/success/:int', 'AdController@publicationSuccess', ['name' => 'ad-publication-success', 'before' => ['WebTranslateMiddleware', 'WebMiddleware']]);
 $this->container->router->get('/ad/edit/:int', 'AdController@edit', ['name' => 'ad-edit', 'before' => ['WebTranslateMiddleware', 'WebMiddleware']]);
 
