@@ -334,7 +334,10 @@ public function oauth($network){
 
            }else{
 
-                $result = $this->user->initRegistration(["name"=>$result["name"], "surname"=>$result["surname"], "email"=>$result["email"]?:null, "phone"=>$result["phone"]?:null, "status"=>1, "avatar"=>$result["photo"]], "web");
+                $params = ["name"=>$result["name"], "surname"=>$result["surname"], "email"=>$result["email"]??null, "phone"=>$result["phone"]??null, "status"=>1, "avatar"=>$result["photo"]??null];
+                if(!empty($result["vk"])) $params["vk"] = $result["vk"];
+                if(!empty($result["telegram"])) $params["telegram"] = $result["telegram"];
+                $result = $this->user->initRegistration($params, "web");
 
                 $this->router->goToUrl($result->route);
 

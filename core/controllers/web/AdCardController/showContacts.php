@@ -1,8 +1,6 @@
 public function showContacts(){  
 
     $contacts_items = "";
-    $messengers_items = "";
-    $messengers = "";
     $ad_contact = $this->session->get("ad-contact");
 
     if(!$ad_contact[$_POST["id"]]){
@@ -15,71 +13,59 @@ public function showContacts(){
          return;
     }
 
-    $data->contacts->name = $data->contacts->name ?: $data->user->name;
-    $data->contacts->phone = $data->contacts->phone ?: $data->user->phone;
+    $contact_name = ($data->contacts->name ?? null) ?: $data->user->name;
+
+    $visibility = $this->model->users_contacts_visibility->find("user_id=?", [$data->user_id]);
+    $showPhone = $visibility && $visibility->show_phone;
+    $showEmail = $visibility && $visibility->show_email;
+    $showTelegram = $visibility && $visibility->show_telegram;
+    $showVk = $visibility && $visibility->show_vk;
+
+    $phone = $visibility ? ($visibility->phone ?: $data->user->phone) : ($data->user->phone ?? '');
+    $email = $visibility ? ($visibility->email ?: $data->user->email) : ($data->user->email ?? '');
 
     if($data){
 
-        if($data->contact_method == "all" || $data->contact_method == "call"){
-
-            if($data->contacts->phone){
-
+        if($showPhone && $phone){
                 if($this->settings->phone_add_plus_status){
-                    $data->contacts->phone = "+" . trim($data->contacts->phone, "+");
+                    $phone = "+" . trim($phone, "+");
                 }
-
                 $contacts_items .= '
-                    <a class="card-contact-user-item-box" href="tel:'.$data->contacts->phone.'" target="_blank" >
+                    <a class="card-contact-user-item-box" href="tel:'.$phone.'" target="_blank" >
                         <img src="'.$this->storage->name("9aa2c959051f186bf1f74435227f2a1a.webp")->path('images')->get().'" />
-                        '.$data->contacts->phone.'
+                        '.$phone.'
                     </a>
                 ';
             }
 
-            if($data->contacts->email && $this->settings->board_publication_required_email){
+            if($showEmail && $email){
                 $contacts_items .= '
-                    <a class="card-contact-user-item-box" href="mailto:'.$data->contacts->email.'" target="_blank" >
+                    <a class="card-contact-user-item-box" href="mailto:'.$email.'" target="_blank" >
                         <img src="'.$this->storage->name("ad4223f1837394992a75515fb489a3e4.webp")->path('images')->get().'" />
-                        '.$data->contacts->email.'
+                        '.$email.'
                     </a>
                 ';
             }
 
-            if($data->contacts->max && $this->settings->board_publication_required_contact_max){
-                $messengers_items .= '
-                    <a class="card-contact-user-item-box" href="https://max.ru/'.$data->contacts->max.'" target="_blank" >
-                        <img src="'.$this->storage->name("social/max.png")->path('images')->get().'" />
-                        Max
-                    </a>
-                ';
-            }
+            $telegram = $visibility ? $visibility->telegram : ($data->user->contacts->telegram ?? '');
+            $vk = $visibility ? $visibility->vk : null;
 
-            if($data->contacts->telegram && $this->settings->board_publication_required_contact_telegram){
-                $messengers_items .= '
-                    <a class="card-contact-user-item-box" href="https://t.me/'.$data->contacts->telegram.'" target="_blank" >
+            if($showTelegram && $telegram){
+                $contacts_items .= '
+                    <a class="card-contact-user-item-box" href="https://t.me/'.htmlspecialchars($telegram).'" target="_blank" >
                         <img src="'.$this->storage->name("social/tg.png")->path('images')->get().'" />
                         Telegram
                     </a>
                 ';
             }
 
-            if($data->contacts->whatsapp && $this->settings->board_publication_required_contact_whatsapp){
-                $messengers_items .= '
-                    <a class="card-contact-user-item-box" href="https://wa.me/'.$this->clean->phone($data->contacts->whatsapp).'" target="_blank" >
-                        <img src="'.$this->storage->name("social/wa.png")->path('images')->get().'" />
-                        WhatsApp
+            if($showVk && $vk){
+                $vkLink = (strpos($vk, 'http') === 0) ? $vk : 'https://vk.com/'.ltrim($vk, '/');
+                $contacts_items .= '
+                    <a class="card-contact-user-item-box" href="'.htmlspecialchars($vkLink).'" target="_blank" >
+                        <img src="'.$this->storage->name("social/vk.png")->path('images')->get().'" />
+                        ВКонтакте
                     </a>
-                ';
-            }
-
-            if($messengers_items){
-                $messengers = '
-                <div class="card-contact-user-item" >
-                    <p>'.translate("tr_68c83fa9d2124c69367bcaae051a83dc").'</p>
-
-                    '.$messengers_items.'
-
-                </div>
                 ';
             }
 
@@ -88,7 +74,7 @@ public function showContacts(){
 
                 <div class="card-contact-user-item" >
                 <p>'.translate("tr_d38d6d925c80a2267031f3f03d0a9070").'</p>
-                <h4>'.$data->contacts->name.'</h4>
+                <h4>'.$contact_name.'</h4>
                 </div>
 
                 <div class="card-contact-user-item" >
@@ -97,8 +83,6 @@ public function showContacts(){
                     '.$contacts_items.'
 
                 </div>
-
-                '.$messengers.'
 
             </div>';
 
@@ -129,8 +113,6 @@ public function showContacts(){
                 }
 
             }
-
-        }
 
     }
 

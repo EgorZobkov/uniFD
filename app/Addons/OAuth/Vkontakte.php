@@ -89,11 +89,15 @@ class Vkontakte{
                 $get_user_info = _json_decode(curl('post','https://id.vk.com/oauth2/user_info',$params));  
                 
                 if($get_user_info){
-                    $result["email"] = $get_user_info['user']['email'];
-                    $result["phone"] = $get_user_info['user']['phone'];
-                    $result["name"] = $get_user_info["user"]['first_name'];
-                    $result["surname"] = $get_user_info["user"]['last_name'];
-                    $result["photo"] = $get_user_info["user"]['avatar'];
+                    $result["email"] = $get_user_info['user']['email'] ?? null;
+                    $result["phone"] = $get_user_info['user']['phone'] ?? null;
+                    $result["name"] = $get_user_info["user"]['first_name'] ?? '';
+                    $result["surname"] = $get_user_info["user"]['last_name'] ?? '';
+                    $result["photo"] = $get_user_info["user"]['avatar'] ?? null;
+                    $vk_id = $get_user_info['user']['id'] ?? $get_user_info['user']['user_id'] ?? null;
+                    if($vk_id){
+                        $result["vk"] = 'https://vk.com/id' . $vk_id;
+                    }
                 }
 
             }

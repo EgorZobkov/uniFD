@@ -99,45 +99,7 @@ public function validationFormCreate($params=[]){
     }
 
     if($app->user->data->id){
-
-        if($app->validation->requiredField($params['contact_method'])->status == false){
-            $answer['contact_method'] = $app->validation->error;
-        }
-
-        if($app->settings->board_publication_required_email){
-
-            if($app->validation->isEmail($params['contact_email'])->status == false){
-                $answer['contact_email'] = $app->validation->error;
-            }else{
-                if($app->settings->email_confirmation_status){
-                    if(!$app->model->users_verified_contacts->find("contact=? and user_id=?", [$params["contact_email"], $app->user->data->id]) && $app->user->data->email != $params["contact_email"]){
-                        $answer['contact_email'] = translate("tr_1a9d5cffc42fd0c3e8ba8f9773687ecb");
-                    } 
-                }           
-            }
-
-        }
-
-        if($app->settings->board_publication_required_phone_number){
-
-            if($app->validation->isPhone($params['contact_phone'])->status == false){
-                if($params['contact_method'] != "message"){
-                    $answer['contact_phone'] = $app->validation->error;
-                }
-            }else{
-                if($app->settings->phone_confirmation_status){
-                    if(!$app->model->users_verified_contacts->find("contact=? and user_id=?", [$app->clean->phone($params["contact_phone"]), $app->user->data->id]) && $app->user->data->phone != $app->clean->phone($params["contact_phone"])){
-                        $answer['contact_phone'] = translate("tr_92899cea85e05d5f506efb774dfd87a3");
-                    } 
-                }
-            }
-
-        }
-
-        if($app->validation->requiredField($params['contact_name'])->status == false){
-            $answer['contact_name'] = $app->validation->error;
-        }
-
+        // Контакты задаются в настройках профиля, отдельная валидация не требуется
     }
 
     if($app->component->ads_categories->categories[$params['category_id']]["booking_status"]){

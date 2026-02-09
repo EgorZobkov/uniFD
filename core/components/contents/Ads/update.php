@@ -64,8 +64,6 @@ public function update($params=[], $user_id=0, $ad_id=0, $admin=false){
         "currency_code"=>$this->getCurrencyCode($params["price_currency_code"]),
         "price_measure_id"=>$this->getPriceMeasure($params["price_measurement"]),
         "media"=>$media,
-        "contacts"=>$this->buildContacts($params),
-        "contact_method"=>$params['contact_method'],
         "category_id"=>$params['category_id'],
         "city_id"=>(int)$geo->id,
         "region_id"=>(int)$geo->region->id,

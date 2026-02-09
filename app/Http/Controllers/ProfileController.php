@@ -471,12 +471,6 @@ public function settingsEdit()
         $answer['name'] = $this->validation->error;
     }
 
-    if($_POST['user_status'] == 2){
-        if($this->validation->requiredField($_POST['organization_name'])->status == false){
-            $answer['organization_name'] = $this->validation->error;
-        }
-    }
-
     $alias = slug($_POST['alias']);
 
     if($this->validation->requiredField($alias)->status == false){
@@ -543,7 +537,33 @@ public function settingsEdit()
             $notifications_method = "email";
         }
 
-        $this->model->users->cacheKey(["id"=>$this->user->data->id])->update(["name"=>$_POST['name'],"surname"=>$_POST['surname'],"phone"=>$this->clean->phone($_POST['phone']),"email"=>$_POST['email'],"contacts"=>$this->component->profile->buildContacts($_POST['contacts']), "notifications"=>$notifications, "user_status"=>(int)$_POST['user_status'] ?: 1, "alias"=>$alias, "organization_name"=>$_POST['organization_name'], "notifications_method"=>$notifications_method, "messenger_token_id"=>$messenger_token_id, "city_id"=>$cityId], $this->user->data->id);
+        $this->model->users->cacheKey(["id"=>$this->user->data->id])->update(["name"=>$_POST['name'],"surname"=>$_POST['surname'],"phone"=>$this->clean->phone($_POST['phone']),"email"=>$_POST['email'],"contacts"=>$this->component->profile->buildContacts($_POST['contacts']), "notifications"=>$notifications, "user_status"=>1, "alias"=>$alias, "organization_name"=>null, "notifications_method"=>$notifications_method, "messenger_token_id"=>$messenger_token_id, "city_id"=>$cityId], $this->user->data->id);
+
+        // Синхронизируем email и телефон в uni_users_contacts_visibility
+        $contacts_visibility = isset($_POST['contacts_visibility']) ? $_POST['contacts_visibility'] : [];
+        $check = $this->model->users_contacts_visibility->find("user_id=?", [$this->user->data->id]);
+        $email = $_POST['email'] ?? null;
+        $phone = $this->clean->phone($_POST['phone'] ?? '');
+        $data = [
+            "user_id" => $this->user->data->id,
+            "email" => $email,
+            "phone" => $phone ?: null,
+            "telegram" => isset($contacts_visibility['telegram']) ? trim($contacts_visibility['telegram'], "@") : ($check ? $check->telegram : null),
+            "vk" => ($vk_id = trim($contacts_visibility['vk'] ?? '')) !== '' ? 'https://vk.com/' . $vk_id : ($check ? $check->vk : null),
+            "show_email" => !empty($contacts_visibility['show_email']) ? 1 : 0,
+            "show_phone" => !empty($contacts_visibility['show_phone']) ? 1 : 0,
+            "show_telegram" => !empty($contacts_visibility['show_telegram']) ? 1 : 0,
+            "show_vk" => !empty($contacts_visibility['show_vk']) ? 1 : 0
+        ];
+        if($check){
+            $this->model->users_contacts_visibility->update($data, ["user_id=?", [$this->user->data->id]]);
+        }else{
+            $data["verified_email"] = 0;
+            $data["verified_phone"] = 0;
+            $data["verified_telegram"] = 0;
+            $data["verified_vk"] = 0;
+            $this->model->users_contacts_visibility->insert($data);
+        }
 
         return json_answer(["status"=>true, "answer"=>translate("tr_481f846c0f4fa251363447107c663265")]);
 

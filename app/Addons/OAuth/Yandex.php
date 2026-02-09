@@ -89,10 +89,10 @@ class Yandex{
                 $get_user_info = _json_decode(curl_exec($ch));
                 curl_close($ch);
          
-                $result["email"] = $get_user_info['default_email'];
-                $result["name"] = $get_user_info['first_name'];
-                $result["surname"] = $get_user_info['last_name'];
-                $result["photo"] =  !$get_user_info['is_avatar_empty'] ? 'https://avatars.yandex.net/get-yapic/'.$get_user_info['default_avatar_id'].'/islands-retina-50' : '';
+                $result["email"] = $get_user_info['default_email'] ?? null;
+                $result["name"] = $get_user_info['first_name'] ?? '';
+                $result["surname"] = $get_user_info['last_name'] ?? '';
+                $result["photo"] = !empty($get_user_info['is_avatar_empty']) ? '' : ('https://avatars.yandex.net/get-yapic/'.($get_user_info['default_avatar_id'] ?? '').'/islands-retina-50');
 
             }
         }

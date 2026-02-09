@@ -28,8 +28,6 @@ CREATE TABLE `uni_ads_data` (
   `in_stock` int NOT NULL DEFAULT '1',
   `not_limited` int NOT NULL DEFAULT '0',
   `publication_period` int NOT NULL DEFAULT '30',
-  `contact_method` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contacts` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `link_video` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `category_id` int NOT NULL DEFAULT '0',
   `city_id` int NOT NULL DEFAULT '0',

@@ -55,46 +55,6 @@
             <div class="profile-settings-section-item" >
                <div class="row" >
                  <div class="col-md-3" >
-                   <label>{{ translate("tr_feef0975aac3bd15d35f5279ae70d0ba") }}</label>
-                 </div>
-                 <div class="col-md-6" >
-                  
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="user_status" value="1" id="user_status1" {% if($template->user->data->user_status == 1): %} checked="" {% endif %}>
-                      <label class="form-check-label" for="user_status1">
-                        {{ translate("tr_51b6f81095ef3cc7f72bf60031fd95eb") }}
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="user_status" value="2" id="user_status2"  {% if($template->user->data->user_status == 2): %} checked="" {% endif %}>
-                      <label class="form-check-label" for="user_status2">
-                        {{ translate("tr_1c5009c44310abcfe726e4e1b8f077c1") }}
-                      </label>
-                    </div>                    
-
-                 </div>
-               </div>
-            </div>
-
-            <div class="profile-settings-section-item-organization" {% if($template->user->data->user_status == 2): %} style="display: block;" {% endif %} >
-              
-            <div class="profile-settings-section-item mb10" >
-               <div class="row" >
-                 <div class="col-md-3" >
-                   <label>{{ translate("tr_16c3e7e34102c34643e18ddc60acac86") }}</label>
-                 </div>
-                 <div class="col-md-6" >
-                    <input type="text" class="form-control" name="organization_name" value="{{ $template->user->data->organization_name }}" >
-                    <label class="form-label-error" data-name="organization_name"></label>
-                 </div>
-               </div>
-            </div>
-
-            </div>
-
-            <div class="profile-settings-section-item" >
-               <div class="row" >
-                 <div class="col-md-3" >
                    <label>{{ translate("tr_d38d6d925c80a2267031f3f03d0a9070") }}</label>
                  </div>
                  <div class="col-md-6" >
@@ -118,36 +78,6 @@
             <div class="profile-settings-section-item" >
                <div class="row" >
                  <div class="col-md-3" >
-                   <label>{{ translate("tr_9fdc3f131f7923e7bdd4ec60d465ae87") }}</label>
-                 </div>
-                 <div class="col-md-6" >
-                    {{ $template->ui->outInputPhoneContact($template->user->data->phone, ["input_name"=>"phone"]) }}
-                    <label class="form-label-error" data-name="phone"></label>
-                    <div class="actionSendVerifyCodePhoneContainer" >
-                      <span class="btn-custom-mini button-color-scheme3 actionSendVerifyCodePhone mt10" >{{ translate("tr_e2603bcce79e0b861ac1f1bd464de2b6") }}</span>
-                    </div>
-                 </div>
-               </div>
-            </div>
-
-            <div class="profile-settings-section-item" >
-               <div class="row" >
-                 <div class="col-md-3" >
-                   <label>{{ translate("tr_ce8ae9da5b7cd6c3df2929543a9af92d") }}</label>
-                 </div>
-                 <div class="col-md-6" >
-                    <input type="text" class="form-control" name="email" value="{{ $template->user->data->email }}" >
-                    <label class="form-label-error" data-name="email"></label>
-                    <div class="actionSendVerifyCodeEmailContainer" >
-                      <span class="btn-custom-mini button-color-scheme3 actionSendVerifyCodeEmail mt10" >{{ translate("tr_e2603bcce79e0b861ac1f1bd464de2b6") }}</span>
-                    </div>
-                 </div>
-               </div>
-            </div>
-
-            <div class="profile-settings-section-item" >
-               <div class="row" >
-                 <div class="col-md-3" >
                    <label>{{ translate("tr_06d897a2b68c63493b65390fe35e7a2a") }}</label>
                  </div>
                  <div class="col-md-6" >
@@ -164,34 +94,105 @@
             <div class="profile-settings-section-item" >
                <div class="row" >
                  <div class="col-md-3" >
-                   <label>{{ translate("tr_c915683f3ec888b8edcc7b06bd1428ec") }}</label>
-                 </div>
-                 <div class="col-md-6" >
-                    <input type="text" class="form-control" name="contacts[telegram]" value="{{ $template->user->data->contacts->telegram }}" >
-                 </div>
-               </div>
-            </div>
-
-            <div class="profile-settings-section-item" >
-               <div class="row" >
-                 <div class="col-md-3" >
-                   <label>{{ translate("tr_8b777ebcc5034ce0fe96dd154bcb370e") }}</label>
-                 </div>
-                 <div class="col-md-6" >
-                    <input type="text" class="form-control" name="contacts[whatsapp]" value="{{ $template->user->data->contacts->whatsapp }}" >
-                 </div>
-               </div>
-            </div>
-
-            <div class="profile-settings-section-item" >
-               <div class="row" >
-                 <div class="col-md-3" >
                    <label>{{ translate("tr_5f0ef7fba904387b273d48f4d71580f3") }}</label>
                  </div>
                  <div class="col-md-6" >
                     <input type="text" class="form-control" name="alias" value="{{ $template->user->data->alias }}" >
                     <label class="form-label-error" data-name="alias"></label>
                     <div class="mt10" > <small>{{ translate("tr_af36f41f9ec895e63ba31441add70ae0") }}</small> </div>
+                 </div>
+               </div>
+            </div>
+
+          </section>
+
+          <section class="profile-settings-section" >
+
+            <h5> <strong>{{ translate("tr_75768c49c24662cc4465237b0731e1ce") }}</strong> </h5>
+
+            <div class="profile-settings-section-item" >
+               <div class="row" >
+                 <div class="col-md-3" >
+                   <label>{{ translate("tr_ce8ae9da5b7cd6c3df2929543a9af92d") }}</label>
+                 </div>
+                 <div class="col-md-6" >
+                    <input type="text" class="form-control" name="email" value="{% if($template->user->data->contacts_visibility && $template->user->data->contacts_visibility->email): %}{{ $template->user->data->contacts_visibility->email }}{% else: %}{{ $template->user->data->email }}{% endif %}" >
+                    <label class="form-label-error" data-name="email"></label>
+                    <div class="actionSendVerifyCodeEmailContainer" >
+                      <span class="btn-custom-mini button-color-scheme3 actionSendVerifyCodeEmail mt10" >{{ translate("tr_e2603bcce79e0b861ac1f1bd464de2b6") }}</span>
+                    </div>
+                    <div class="mt10" >
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="contacts_visibility[show_email]" value="1" id="show_email" {% if($template->user->data->contacts_visibility && $template->user->data->contacts_visibility->show_email): %} checked="" {% endif %}>
+                        <label class="form-check-label" for="show_email">
+                          {{ translate("tr_e1228efa56c6d4ecd5b146dc12b11e69") }}
+                        </label>
+                      </div>
+                    </div>
+                 </div>
+               </div>
+            </div>
+
+            <div class="profile-settings-section-item" >
+               <div class="row" >
+                 <div class="col-md-3" >
+                   <label>{{ translate("tr_9fdc3f131f7923e7bdd4ec60d465ae87") }}</label>
+                 </div>
+                 <div class="col-md-6" >
+                    {{ $template->ui->outInputPhoneContact(($template->user->data->contacts_visibility ? $template->user->data->contacts_visibility->phone : $template->user->data->phone), ["input_name"=>"phone"]) }}
+                    <label class="form-label-error" data-name="phone"></label>
+                    <div class="actionSendVerifyCodePhoneContainer" >
+                      <span class="btn-custom-mini button-color-scheme3 actionSendVerifyCodePhone mt10" >{{ translate("tr_e2603bcce79e0b861ac1f1bd464de2b6") }}</span>
+                    </div>
+                    <div class="mt10" >
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="contacts_visibility[show_phone]" value="1" id="show_phone" {% if($template->user->data->contacts_visibility && $template->user->data->contacts_visibility->show_phone): %} checked="" {% endif %}>
+                        <label class="form-check-label" for="show_phone">
+                          {{ translate("tr_e1228efa56c6d4ecd5b146dc12b11e69") }}
+                        </label>
+                      </div>
+                    </div>
+                 </div>
+               </div>
+            </div>
+
+            <div class="profile-settings-section-item" >
+               <div class="row" >
+                 <div class="col-md-3" >
+                   <label>{{ translate("tr_d235f33b916d3985aefdd3c5589b57b8") }}</label>
+                 </div>
+                 <div class="col-md-6" >
+                    <div class="input-group">
+                      <span class="input-group-text">https://vk.com/</span>
+                      <input type="text" class="form-control" name="contacts_visibility[vk]" value="{% if($template->user->data->contacts_visibility): %}{{ $template->user->data->contacts_visibility->vk_id }}{% endif %}" placeholder="id123456">
+                    </div>
+                    <div class="mt10" >
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="contacts_visibility[show_vk]" value="1" id="show_vk" {% if($template->user->data->contacts_visibility && $template->user->data->contacts_visibility->show_vk): %} checked="" {% endif %}>
+                        <label class="form-check-label" for="show_vk">
+                          {{ translate("tr_e1228efa56c6d4ecd5b146dc12b11e69") }}
+                        </label>
+                      </div>
+                    </div>
+                 </div>
+               </div>
+            </div>
+
+            <div class="profile-settings-section-item" >
+               <div class="row" >
+                 <div class="col-md-3" >
+                   <label>{{ translate("tr_c915683f3ec888b8edcc7b06bd1428ec") }}</label>
+                 </div>
+                 <div class="col-md-6" >
+                    <input type="text" class="form-control" name="contacts_visibility[telegram]" value="{% if($template->user->data->contacts_visibility): %}{{ $template->user->data->contacts_visibility->telegram }}{% else: %}{{ $template->user->data->contacts->telegram }}{% endif %}" placeholder="@username" >
+                    <div class="mt10" >
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="contacts_visibility[show_telegram]" value="1" id="show_telegram" {% if($template->user->data->contacts_visibility && $template->user->data->contacts_visibility->show_telegram): %} checked="" {% endif %}>
+                        <label class="form-check-label" for="show_telegram">
+                          {{ translate("tr_e1228efa56c6d4ecd5b146dc12b11e69") }}
+                        </label>
+                      </div>
+                    </div>
                  </div>
                </div>
             </div>

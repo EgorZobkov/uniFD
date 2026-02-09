@@ -49,35 +49,30 @@ public function outActionButtonsInAdCard($data=[]){
 
     }else{
 
+        $has_visible_contacts = false;
+        if(!empty($data->user_id)){
+            if(!isset($data->user)){
+                $data->user = $app->model->users->findById($data->user_id, true);
+            }
+            $visibility = $app->model->users_contacts_visibility->find("user_id=?", [$data->user_id]);
+            if($visibility){
+                $user = $data->user ?? null;
+                $phone = $visibility->phone ?: ($user->phone ?? '');
+                $email = $visibility->email ?: ($user->email ?? '');
+                $has_visible_contacts = ($visibility->show_phone && $phone) || ($visibility->show_email && $email) || ($visibility->show_telegram && $visibility->telegram) || ($visibility->show_vk && $visibility->vk);
+            }
+        }
+
         if($data->status == 1){
-
-            if($data->contact_method == "all"){
-                ?>
-                <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
-                <button class="btn-custom button-color-scheme2 width100 actionAdShowContacts" data-id="<?php echo $data->id; ?>" ><?php echo translate("tr_a3fe3a50afc89c343898bd962c49b514"); ?></button>
-                <?php
-            }elseif($data->contact_method == "call"){
-                ?>
-                <button class="btn-custom button-color-scheme2 width100 actionAdShowContacts" data-id="<?php echo $data->id; ?>" ><?php echo translate("tr_a3fe3a50afc89c343898bd962c49b514"); ?></button>
-                <?php
-            }elseif($data->contact_method == "message"){
-                ?>
-                <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
-                <?php
-            }
-
+            ?>
+            <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
+            <?php if($has_visible_contacts){ ?>
+            <button class="btn-custom button-color-scheme2 width100 actionAdShowContacts" data-id="<?php echo $data->id; ?>" ><?php echo translate("tr_a3fe3a50afc89c343898bd962c49b514"); ?></button>
+            <?php }
         }elseif($data->status == 2){
-
-            if($data->contact_method == "all"){
-                ?>
-                <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
-                <?php
-            }elseif($data->contact_method == "message"){
-                ?>
-                <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
-                <?php
-            }
-
+            ?>
+            <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
+            <?php
         }
 
     }

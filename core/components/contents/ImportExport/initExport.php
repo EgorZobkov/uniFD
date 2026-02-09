@@ -159,10 +159,6 @@ public function initExport($value=null, $page=1){
 
                 $field["status"] = $app->component->ads->status($field["status"])->name;
 
-                if($field["contacts"]){
-                    $field["contacts"] = decrypt($field["contacts"]);
-                }
-
                 foreach ($header as $name_field) {
                     $rows[] = WriterEntityFactory::createCell($field[$name_field]);
                 }

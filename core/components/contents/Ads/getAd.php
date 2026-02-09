@@ -14,7 +14,17 @@ public function getAd($id=0, $user_id=0){
         $data->user = $app->model->users->findById($data->user_id, true);
         $data->raw_media = $data->media ? _json_decode($data->media) : [];
         $data->media = $this->getMedia($data->media);
-        $data->contacts = (object)_json_decode(decrypt($data->contacts));
+        $visibility = $app->model->users_contacts_visibility->find("user_id=?", [$data->user_id]);
+        $uc = is_object($data->user->contacts ?? null) ? $data->user->contacts : (object)[];
+        $data->contacts = (object)[
+            "name" => $data->user->name ?? '',
+            "email" => $visibility ? ($visibility->email ?: $data->user->email) : ($data->user->email ?? ''),
+            "phone" => $visibility ? ($visibility->phone ?: $data->user->phone) : ($data->user->phone ?? ''),
+            "telegram" => $visibility ? ($visibility->telegram ?? '') : ($uc->telegram ?? ''),
+            "vk" => $visibility ? ($visibility->vk ?? '') : '',
+            "whatsapp" => $uc->whatsapp ?? '',
+            "max" => $uc->max ?? ''
+        ];
         $data->external_content = $data->external_content ? decrypt($data->external_content) : null;
         if($data->reason_blocking_code){
             $data->reason = $app->system->getReasonBlocking($data->reason_blocking_code);

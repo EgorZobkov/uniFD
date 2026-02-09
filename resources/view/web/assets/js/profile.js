@@ -302,17 +302,6 @@ $(document).ready(function () {
 
    });
 
-   $(document).on('change','.profile-settings-form input[name=user_status]', function (e) {  
-
-      if($(this).val() == 2){
-         $(".profile-settings-section-item-organization").show();
-      }else{
-         $(".profile-settings-section-item-organization").hide();
-      }
-
-      e.preventDefault();
-
-   });
 
    $(document).on('click','.actionSendVerifyCodeEmail', function (e) {
 

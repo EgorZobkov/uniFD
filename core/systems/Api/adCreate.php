@@ -67,8 +67,6 @@ public function adCreate($params=[], $user_id=0){
         "currency_code"=>$app->component->ads->getCurrencyCode($params["price_currency_code"]),
         "price_measure_id"=>$app->component->ads->getPriceMeasure($params["price_measurement"]),
         "media"=>$media,
-        "contacts"=>$app->component->ads->buildContacts($params),
-        "contact_method"=>$params['contact_method'] ?: "all",
         "category_id"=>$params['category_id'],
         "user_id"=>$user_id,
         "city_id"=>(int)$geo->id,

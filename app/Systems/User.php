@@ -37,6 +37,37 @@
 
         $user_id = $app->model->users->insert(["time_create"=>$this->params['time_create'], "name"=>$this->params['name'], "surname"=>$this->params['surname'], "email"=>$this->params['email']?:null, "phone"=>$this->params['phone']?:null, "password"=>$this->params['password'], "avatar"=>$this->params['avatar']?:null, "status"=>(int)$this->params['status'], "reason_blocking_code"=>$this->params['reason_blocking_code']?:null, "time_expiration_blocking"=>$this->params['time_blocking'], "role_id"=>(int)$this->params['role_id'], "notifications_method"=>"email", "admin"=>$this->params['admin'], "alias"=>generateCode(30), "uniq_hash"=>generateHashString(), "notifications"=>'{"chat":"1","expiration_ads":"1","expiration_tariff":"1","add_to_favorite":"1","view_ad_contacts":"1"}', "import_id"=>$this->params['import_id']?:0]);
 
+        if($user_id){
+            // Создаем запись в uni_users_contacts_visibility при регистрации
+            try {
+                // Проверяем, не существует ли уже запись
+                $check = $app->db->getRow("SELECT user_id FROM `uni_users_contacts_visibility` WHERE user_id=?", [$user_id]);
+                if(!$check){
+                    // Используем прямой SQL запрос для надежности
+                    $app->db->exec("INSERT INTO `uni_users_contacts_visibility` (`user_id`, `email`, `phone`, `telegram`, `vk`, `show_email`, `show_phone`, `show_telegram`, `show_vk`, `verified_email`, `verified_phone`, `verified_telegram`, `verified_vk`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [
+                        $user_id,
+                        $this->params['email'] ?? null,
+                        $this->params['phone'] ?? null,
+                        $this->params['telegram'] ?? null,
+                        $this->params['vk'] ?? null,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]);
+                }
+            } catch (\Exception $e) {
+                // Логируем ошибку, но не прерываем регистрацию
+                if(isset($app->logger)){
+                    $app->logger->set("Error creating users_contacts_visibility record: " . $e->getMessage());
+                }
+            }
+        }
+
         if($user_id && $this->params['admin']){
 
             if(!$this->getRole($this->params['role_id'])->chief){
@@ -98,6 +129,12 @@ public function buildData($user=[]){
     $user->customize_template = $app->model->system_customize_template->find('user_id=?', [$user->id]);
     $user->access_key = $app->model->auth_access_key->find("user_id=?", [$user->id]);
     $user->delivery_data = $app->model->users_delivery_data->find("user_id=?", [$user->id]);
+    $user->contacts_visibility = $app->model->users_contacts_visibility->find("user_id=?", [$user->id]);
+    if ($user->contacts_visibility) {
+        $user->contacts_visibility->vk_id = (isset($user->contacts_visibility->vk) && $user->contacts_visibility->vk !== '')
+            ? preg_replace('|^https?://vk\\.com/|i', '', trim($user->contacts_visibility->vk))
+            : '';
+    }
 
     return $user;
     

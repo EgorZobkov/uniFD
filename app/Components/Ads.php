@@ -750,7 +750,17 @@ public function getAd($id=0, $user_id=0){
         $data->user = $app->model->users->findById($data->user_id, true);
         $data->raw_media = $data->media ? _json_decode($data->media) : [];
         $data->media = $this->getMedia($data->media);
-        $data->contacts = (object)_json_decode(decrypt($data->contacts));
+        $visibility = $app->model->users_contacts_visibility->find("user_id=?", [$data->user_id]);
+        $uc = is_object($data->user->contacts ?? null) ? $data->user->contacts : (object)[];
+        $data->contacts = (object)[
+            "name" => $data->user->name ?? '',
+            "email" => $visibility ? ($visibility->email ?: $data->user->email) : ($data->user->email ?? ''),
+            "phone" => $visibility ? ($visibility->phone ?: $data->user->phone) : ($data->user->phone ?? ''),
+            "telegram" => $visibility ? ($visibility->telegram ?? '') : ($uc->telegram ?? ''),
+            "vk" => $visibility ? ($visibility->vk ?? '') : '',
+            "whatsapp" => $uc->whatsapp ?? '',
+            "max" => $uc->max ?? ''
+        ];
         $data->external_content = $data->external_content ? decrypt($data->external_content) : null;
         if($data->reason_blocking_code){
             $data->reason = $app->system->getReasonBlocking($data->reason_blocking_code);
@@ -1044,7 +1054,18 @@ public function getDataByValue($data=[]){
     $data["geo"] = $app->component->geo->getCityData($data["city_id"]);
     $data["user"] = $app->model->users->findById($data["user_id"], false, true);
     $data["media"] = $this->getMedia($data["media"]);
-    $data["contacts"] = (object)_json_decode(decrypt($data["contacts"]));
+    $visibility = $app->model->users_contacts_visibility->find("user_id=?", [$data["user_id"]]);
+    $user = $data["user"];
+    $uc = is_object($user->contacts ?? null) ? $user->contacts : (object)[];
+    $data["contacts"] = (object)[
+        "name" => $user->name ?? '',
+        "email" => $visibility ? ($visibility->email ?: $user->email) : ($user->email ?? ''),
+        "phone" => $visibility ? ($visibility->phone ?: $user->phone) : ($user->phone ?? ''),
+        "telegram" => $visibility ? ($visibility->telegram ?? '') : ($uc->telegram ?? ''),
+        "vk" => $visibility ? ($visibility->vk ?? '') : '',
+        "whatsapp" => $uc->whatsapp ?? '',
+        "max" => $uc->max ?? ''
+    ];
 
     return (object)$data;
 
@@ -1329,35 +1350,30 @@ public function outActionButtonsInAdCard($data=[]){
 
     }else{
 
+        $has_visible_contacts = false;
+        if(!empty($data->user_id)){
+            if(!isset($data->user)){
+                $data->user = $app->model->users->findById($data->user_id, true);
+            }
+            $visibility = $app->model->users_contacts_visibility->find("user_id=?", [$data->user_id]);
+            if($visibility){
+                $user = $data->user ?? null;
+                $phone = $visibility->phone ?: ($user->phone ?? '');
+                $email = $visibility->email ?: ($user->email ?? '');
+                $has_visible_contacts = ($visibility->show_phone && $phone) || ($visibility->show_email && $email) || ($visibility->show_telegram && $visibility->telegram) || ($visibility->show_vk && $visibility->vk);
+            }
+        }
+
         if($data->status == 1){
-
-            if($data->contact_method == "all"){
-                ?>
-                <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
-                <button class="btn-custom button-color-scheme2 width100 actionAdShowContacts" data-id="<?php echo $data->id; ?>" ><?php echo translate("tr_a3fe3a50afc89c343898bd962c49b514"); ?></button>
-                <?php
-            }elseif($data->contact_method == "call"){
-                ?>
-                <button class="btn-custom button-color-scheme2 width100 actionAdShowContacts" data-id="<?php echo $data->id; ?>" ><?php echo translate("tr_a3fe3a50afc89c343898bd962c49b514"); ?></button>
-                <?php
-            }elseif($data->contact_method == "message"){
-                ?>
-                <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
-                <?php
-            }
-
+            ?>
+            <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
+            <?php if($has_visible_contacts){ ?>
+            <button class="btn-custom button-color-scheme2 width100 actionAdShowContacts" data-id="<?php echo $data->id; ?>" ><?php echo translate("tr_a3fe3a50afc89c343898bd962c49b514"); ?></button>
+            <?php }
         }elseif($data->status == 2){
-
-            if($data->contact_method == "all"){
-                ?>
-                <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
-                <?php
-            }elseif($data->contact_method == "message"){
-                ?>
-                <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
-                <?php
-            }
-
+            ?>
+            <button class="btn-custom button-color-scheme1 width100 actionOpenDialogueSendMessage" data-params="<?php echo $app->component->chat->buildParams(['ad_id'=>$data->id, 'whom_user_id'=>$data->user_id]); ?>" ><?php echo translate("tr_014478b5b412ab74b6a95f968d4e413d"); ?></button>
+            <?php
         }
 
     }
@@ -2406,8 +2422,6 @@ public function publication($params=[], $user_id=0, $admin=false){
         "currency_code"=>$this->getCurrencyCode($params["price_currency_code"]),
         "price_measure_id"=>$this->getPriceMeasure($params["price_measurement"]),
         "media"=>$media,
-        "contacts"=>$this->buildContacts($params),
-        "contact_method"=>$params['contact_method'] ?: "all",
         "category_id"=>$params['category_id'],
         "user_id"=>$user_id,
         "city_id"=>(int)$geo->id,
@@ -2496,8 +2510,6 @@ public function publicationByImport($params=[]){
         "currency_code"=>$this->getCurrencyCode($params["price_currency_code"]),
         "price_measure_id"=>$this->getPriceMeasure($params["price_measurement"]),
         "media"=>$params['media'] ?: null,
-        "contacts"=>$this->buildContacts($params),
-        "contact_method"=>"all",
         "category_id"=>$params['category_id'],
         "user_id"=>(int)$params['user_id'],
         "city_id"=>(int)$geo->id,
@@ -2671,8 +2683,6 @@ public function update($params=[], $user_id=0, $ad_id=0, $admin=false){
         "currency_code"=>$this->getCurrencyCode($params["price_currency_code"]),
         "price_measure_id"=>$this->getPriceMeasure($params["price_measurement"]),
         "media"=>$media,
-        "contacts"=>$this->buildContacts($params),
-        "contact_method"=>$params['contact_method'],
         "category_id"=>$params['category_id'],
         "city_id"=>(int)$geo->id,
         "region_id"=>(int)$geo->region->id,
@@ -2949,45 +2959,7 @@ public function validationFormCreate($params=[]){
     }
 
     if($app->user->data->id){
-
-        if($app->validation->requiredField($params['contact_method'])->status == false){
-            $answer['contact_method'] = $app->validation->error;
-        }
-
-        if($app->settings->board_publication_required_email){
-
-            if($app->validation->isEmail($params['contact_email'])->status == false){
-                $answer['contact_email'] = $app->validation->error;
-            }else{
-                if($app->settings->email_confirmation_status){
-                    if(!$app->model->users_verified_contacts->find("contact=? and user_id=?", [$params["contact_email"], $app->user->data->id]) && $app->user->data->email != $params["contact_email"]){
-                        $answer['contact_email'] = translate("tr_1a9d5cffc42fd0c3e8ba8f9773687ecb");
-                    } 
-                }           
-            }
-
-        }
-
-        if($app->settings->board_publication_required_phone_number){
-
-            if($app->validation->isPhone($params['contact_phone'])->status == false){
-                if($params['contact_method'] != "message"){
-                    $answer['contact_phone'] = $app->validation->error;
-                }
-            }else{
-                if($app->settings->phone_confirmation_status){
-                    if(!$app->model->users_verified_contacts->find("contact=? and user_id=?", [$app->clean->phone($params["contact_phone"]), $app->user->data->id]) && $app->user->data->phone != $app->clean->phone($params["contact_phone"])){
-                        $answer['contact_phone'] = translate("tr_92899cea85e05d5f506efb774dfd87a3");
-                    } 
-                }
-            }
-
-        }
-
-        if($app->validation->requiredField($params['contact_name'])->status == false){
-            $answer['contact_name'] = $app->validation->error;
-        }
-
+        // Контакты задаются в настройках профиля, проверки по способу связи не используются
     }
 
     if($app->component->ads_categories->categories[$params['category_id']]["booking_status"]){
