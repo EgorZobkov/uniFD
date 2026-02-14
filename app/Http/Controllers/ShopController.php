@@ -442,6 +442,8 @@ public function page($shop_alias, $page_alias)
     $this->view->visible_header = false;
     $this->view->visible_footer = false;
 
+    // CKEditor только на странице магазина (редактор описания страницы)
+    $this->asset->registerJs(["view"=>"web", "name"=>"<script src=\"{assets_path}/vendors/ckeditor5-inline/ckeditor.min.js\" defer></script>"]);
     $this->asset->registerJs(["view"=>"web", "name"=>"<script src=\"{assets_path}/js/shop.js\" type=\"module\" ></script>"]);
 
     $data = (object)[];

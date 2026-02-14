@@ -1,7 +1,7 @@
 {% extends index.tpl %}
 
 {% block head %}
-<link rel="canonical" href="{{ $template->component->ads_categories->buildAliases((array)$template->component->catalog->data->category) }}"/>
+<link rel="canonical" href="{{ $template->component->ads_categories->buildAliases((array)($template->component->catalog->data->category ?? [])) }}"/>
 {% endblock %}
 
 {% block content %}
@@ -55,8 +55,10 @@
     </div>
         {% endif %}
 
+    {% if($template->component->catalog->data->category): %}
     {{ $template->component->catalog->outPromoBanners() }}
     {{ $template->component->catalog->outStories() }}
+    {% endif %}
 
     {{ $template->component->ads_filters->outFilterLinks() }}
 
@@ -67,11 +69,11 @@
         <div class="catalog-sidebar" >
 
           <form class="params-form live-filters params-form-sticky" >
-          {{ $template->component->catalog->buildParamsForm($_GET, $template->component->catalog->data->category->id); }}
+          {{ $template->component->catalog->buildParamsForm($_GET, $template->component->catalog->data->category ? $template->component->catalog->data->category->id : 0); }}
 
           <div class="params-buttons-sticky" >
             
-            {{ $template->component->ads_filters->outButtonExtraFilters($template->component->catalog->data->category->id) }}
+            {{ $template->component->ads_filters->outButtonExtraFilters($template->component->catalog->data->category ? $template->component->catalog->data->category->id : 0) }}
             
             <button class="btn-custom button-color-scheme1 width100 actionApplyLiveFilters" >{{ translate("tr_130bbbc068f7a58df5d47f6587ff4b43") }}</button>
 
@@ -101,7 +103,7 @@
                 <span class="actionSaveSearch catalog-container-links-inline-item" >{{ translate("tr_852be42059679d4e4fef58aad5f3fa2f") }}</span>
                {% endif %}
 
-               {% if($template->component->catalog->data->category->change_city_status): %}
+               {% if($template->component->catalog->data->category && $template->component->catalog->data->category->change_city_status): %}
                <a class="catalog-container-links-inline-item" href="{{ $template->component->catalog->outLinkMap(); }}" >{{ translate("tr_666bf8c669656fd744a2ae5e889ca47e") }}</a>
                {% endif %}
                
@@ -115,8 +117,8 @@
                 <div>
                   <div class="catalog-container-options-view-item text-end catalog-action-change-view-item" >
 
-                    <span {% if($template->component->catalog->getViewItems($template->component->catalog->data->category->id) == "grid"): %} class="active" {% endif; %} data-view="grid" > <i class="ti ti-layout-grid"></i> </span>
-                    <span {% if($template->component->catalog->getViewItems($template->component->catalog->data->category->id) == "list"): %} class="active" {% endif; %} data-view="list" > <i class="ti ti-list-details"></i> </span>                
+                    <span {% if($template->component->catalog->getViewItems($template->component->catalog->data->category ? $template->component->catalog->data->category->id : 0) == "grid"): %} class="active" {% endif; %} data-view="grid" > <i class="ti ti-layout-grid"></i> </span>
+                    <span {% if($template->component->catalog->getViewItems($template->component->catalog->data->category ? $template->component->catalog->data->category->id : 0) == "list"): %} class="active" {% endif; %} data-view="list" > <i class="ti ti-list-details"></i> </span>                
 
                   </div>
                 </div>
@@ -153,6 +155,6 @@
 
 </div>
 
-{{ $template->ui->tpl('modals/extra-filters-modal.tpl')->modal("extraFilters", "medium", ["filters"=>$_GET["filter"], "category_id"=>$template->component->catalog->data->category->id]) }}
+{{ $template->ui->tpl('modals/extra-filters-modal.tpl')->modal("extraFilters", "medium", ["filters"=>$_GET["filter"], "category_id"=>$template->component->catalog->data->category ? $template->component->catalog->data->category->id : 0]) }}
 
 {% endblock %}

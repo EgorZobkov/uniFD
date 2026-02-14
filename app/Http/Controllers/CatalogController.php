@@ -129,21 +129,24 @@ public function loadItems()
     $data = [];
     $ids = [];
 
-    $page = (int)$_POST["page"] ? (int)$_POST["page"] : 1;
+    $page = isset($_POST["page"]) ? (int)$_POST["page"] : 1;
+    if($page < 1) $page = 1;
 
     $this->pagination->request($_POST);
 
-    if($_POST["sort"] == "news"){
+    $sortParam = $_POST["sort"] ?? "time";
+    if($sortParam == "news"){
         $sort = 'id desc';
-    }elseif($_POST["sort"] == "price_asc"){
+    }elseif($sortParam == "price_asc"){
         $sort = 'price asc';
-    }elseif($_POST["sort"] == "price_desc"){
+    }elseif($sortParam == "price_desc"){
         $sort = 'price desc';
     }else{
         $sort = 'time_sorting desc';
     }
 
-    $category_id = $this->session->get("request-catalog")->category_id ?: 0;
+    $requestCatalog = $this->session->get("request-catalog");
+    $category_id = $requestCatalog ? ($requestCatalog->category_id ?? 0) : (isset($_POST["c_id"]) ? (int)$_POST["c_id"] : 0);
 
     $build = $this->component->catalog->buildQuery($_POST, $category_id, $this->session->get("geo"));
 

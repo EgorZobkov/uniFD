@@ -35,7 +35,8 @@ public function loadItems()
     $data = [];
     $ids = [];
 
-    $page = (int)$_POST["page"] ?: 1;
+    $page = isset($_POST["page"]) ? (int)$_POST["page"] : 1;
+    if($page < 1) $page = 1;
 
     $geo = $this->session->get("geo");
 

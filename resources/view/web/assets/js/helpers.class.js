@@ -87,7 +87,15 @@ export default class Helpers {
 
       try {
 
-          $.ajax({url: this.getRoute(params["url"]),type: params["type"] ? params["type"] : 'POST',data: params["data"] ? params["data"] : null,dataType: params["dataType"] ? params["dataType"] : "json", contentType: params["contentType"], processData: params["processData"],success: function(data) {
+          $.ajax({
+            url: this.getRoute(params["url"]),
+            type: params["type"] ? params["type"] : 'POST',
+            data: params["data"] ? params["data"] : null,
+            dataType: params["dataType"] ? params["dataType"] : "json",
+            contentType: params["contentType"],
+            processData: params["processData"],
+            timeout: params["timeout"] ? params["timeout"] : 30000,
+            success: function(data) {
               if(precheck){
                 if(thisClass.ajaxData(data,params["button"])){
                   callback(data);
@@ -97,10 +105,21 @@ export default class Helpers {
               }
               thisClass.uniSelectUpdate();
               thisClass.initPhoneMask();
-          }});   
+            },
+            error: function(xhr, status, error) {
+              if(params["error"] && typeof params["error"] === "function"){
+                params["error"](xhr, status, error);
+              }else if(params["button"]){
+                thisClass.endProcessLoadButton($(params["button"]));
+              }
+            }
+          });   
 
       } catch (error) {
           console.log(error);
+          if(params["error"] && typeof params["error"] === "function"){
+            params["error"](null, "error", error);
+          }
       }
 
   }
