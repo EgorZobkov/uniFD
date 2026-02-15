@@ -336,6 +336,8 @@ class Storage
                                             $resultUpload = $app->image->path($app->config->storage->temp)->name($generatedName.'.'.$extension)->saveTo($pathUpload)->saveExt($saveExt)->watermark($watermark)->deleteOriginal($deleteOriginal)->crop();
                                         }elseif($use == "resize"){
                                             $resultUpload = $app->image->path($app->config->storage->temp)->name($generatedName.'.'.$extension)->saveTo($pathUpload)->saveExt($saveExt)->watermark($watermark)->deleteOriginal($deleteOriginal)->resize($width, $height);
+                                        }elseif($use == "cover"){
+                                            $resultUpload = $app->image->path($app->config->storage->temp)->name($generatedName.'.'.$extension)->saveTo($pathUpload)->saveExt($saveExt)->watermark($watermark)->deleteOriginal($deleteOriginal)->cover($width ?: 90, $height ?: 90);
                                         }
                                     }else{
                                         $resultUpload = $app->image->path($app->config->storage->temp)->name($generatedName.'.'.$extension)->saveTo($pathUpload)->saveExt($saveExt)->watermark($watermark)->deleteOriginal($deleteOriginal)->resize($width, $height);
@@ -357,6 +359,8 @@ class Storage
                                         $resultUpload = $app->image->path($app->config->storage->temp)->name($generatedName.'.'.$extension)->saveTo($pathUpload)->saveExt($saveExt)->watermark($watermark)->deleteOriginal($deleteOriginal)->crop();
                                     }elseif($use == "resize"){
                                         $resultUpload = $app->image->path($app->config->storage->temp)->name($generatedName.'.'.$extension)->saveTo($pathUpload)->saveExt($saveExt)->watermark($watermark)->deleteOriginal($deleteOriginal)->resize($width, $height);
+                                    }elseif($use == "cover"){
+                                        $resultUpload = $app->image->path($app->config->storage->temp)->name($generatedName.'.'.$extension)->saveTo($pathUpload)->saveExt($saveExt)->watermark($watermark)->deleteOriginal($deleteOriginal)->cover($width ?: 90, $height ?: 90);
                                     }
                                 }else{
                                     $resultUpload = $app->image->path($app->config->storage->temp)->name($generatedName.'.'.$extension)->saveTo($pathUpload)->saveExt($saveExt)->watermark($watermark)->deleteOriginal($deleteOriginal)->resize($width, $height);

@@ -131,6 +131,30 @@ class Image
             }
         }
 
+        return [];
+    }
+
+    /**
+     * Crop to exact size with center positioning (scale to cover, then crop).
+     * Use for square avatars: cover(90, 90) → 90×90 px.
+     */
+    public function cover($width, $height, $position = 'center'){
+
+        if(isset($this->path) && isset($this->name) && isset($this->saveTo)){
+
+            $originalPath = $this->path.'/'.$this->name;
+
+            if(file_exists($originalPath)){
+
+                $manager = new ImageManager(Driver::class);
+
+                $image = $manager->read($originalPath)->cover($width, $height, $position);
+
+                return $this->save($image, $originalPath, $this->saveTo, getInfoFile($this->name)->filename);
+            }
+        }
+
+        return [];
     }
 
     public function toBase64ByData($data=null, $decrypt=false){

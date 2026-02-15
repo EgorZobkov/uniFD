@@ -1,7 +1,7 @@
 public function uploadAvatar()
 {   
 
-    $resultUpload = $this->storage->files($_FILES['attach_files'])->path('user-avatar')->extList('images')->deleteOriginal(true)->use("resize")->upload();
+    $resultUpload = $this->storage->files($_FILES['attach_files'])->path('user-avatar')->extList('images')->deleteOriginal(true)->use("cover")->width(90)->height(90)->upload();
 
     if($resultUpload){
 
